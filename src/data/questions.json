@@ -1,0 +1,2915 @@
+{
+  "meta": {
+    "course": "Python Academy – Application 2: Python Asoslari",
+    "total_questions_in_bank": 200,
+    "practical_problems": 20,
+    "language": "uzbek",
+    "created_by": "senior Python teacher",
+    "exam_structure": {
+      "part_1": {
+        "questions": 50,
+        "duration_minutes": 60,
+        "pool": "2.1–2.8 mavzulari (79 ta savoldan tasodifiy 50 ta)"
+      },
+      "part_2": {
+        "questions": 50,
+        "duration_minutes": 60,
+        "pool": "2.9–2.16 mavzulari (121 ta savoldan tasodifiy 50 ta)"
+      },
+      "part_3": {
+        "practical_problems": 20,
+        "duration_minutes": 60
+      },
+      "total_duration_minutes": 180,
+      "note": "output turidagi savollarda correct_answer — dastur chiqaradigan matnning aynan oʻzi; \\n — yangi qator."
+    },
+    "difficulty_distribution": {
+      "easy": 40,
+      "medium": 123,
+      "hard": 37
+    },
+    "type_distribution": {
+      "single_choice": 89,
+      "output": 78,
+      "true_false": 15,
+      "multiple_choice": 9,
+      "fill_blank": 9
+    }
+  },
+  "topics_distribution": {
+    "2.1 Sintaksis va chekinish": 8,
+    "2.2 print() — matn va sonlarni chiqarish": 13,
+    "2.3 Izohlar": 6,
+    "2.4 Oʻzgaruvchilar va nomlash": 12,
+    "2.5 Bir nechta qiymat berish": 10,
+    "2.7 Maʼlumot turlari": 13,
+    "2.8 Turlarni oʻzgartirish": 17,
+    "2.9 Sonlar: int, float, complex": 18,
+    "2.10 Mantiqiy qiymatlar va None": 12,
+    "2.11 Satrlar asoslari": 14,
+    "2.12 Kesish (slicing)": 16,
+    "2.13 Satr metodlari": 24,
+    "2.14 Satrlarni birlashtirish": 10,
+    "2.15 f-satrlar (formatlangan satrlar)": 17,
+    "2.16 Maxsus belgilar (escape)": 10
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Sintaksis va chekinish",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Quyidagi kod ishga tushirilsa nima boʻladi?\n\n```python\nprint(\"Salom\")\n    print(\"Dunyo\")\n```",
+      "code": "print(\"Salom\")\n    print(\"Dunyo\")",
+      "options": [
+        "A) Salom va Dunyo chiqadi",
+        "B) Faqat Salom chiqadi",
+        "C) Faqat Dunyo chiqadi",
+        "D) IndentationError xatosi chiqadi"
+      ],
+      "correct_answer": "D",
+      "explanation": "Ikkinchi qator sababsiz 4 ta boʻsh joy bilan boshlangan. Pythonda chekinish maʼnoga ega, ortiqcha chekinish — IndentationError."
+    },
+    {
+      "id": 2,
+      "topic": "Sintaksis va chekinish",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nball = 10\nprint(ball)\nball = 25\nprint(ball)\n```",
+      "code": "ball = 10\nprint(ball)\nball = 25\nprint(ball)",
+      "correct_answer": "10\n25",
+      "explanation": "Kod yuqoridan pastga, qatorma-qator bajariladi: birinchi print paytida ball = 10, ikkinchisida 25."
+    },
+    {
+      "id": 3,
+      "topic": "Sintaksis va chekinish",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "`Print(\"Salom\")` va `print(\"Salom\")` Pythonda bir xil ishlaydi.",
+      "correct_answer": "False",
+      "explanation": "Python katta-kichik harfni farqlaydi. Funksiya nomi `print`; `Print` deb yozilsa NameError chiqadi."
+    },
+    {
+      "id": 4,
+      "topic": "Sintaksis va chekinish",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Python kod qatorlarining qaysi blokka tegishli ekanini nima orqali belgilaydi?",
+      "options": [
+        "A) Qator boshidagi chekinish (boʻsh joylar) orqali",
+        "B) Figurali qavslar { } orqali",
+        "C) end kalit soʻzi orqali",
+        "D) Qator oxiridagi ; belgisi orqali"
+      ],
+      "correct_answer": "A",
+      "explanation": "Pythonda blok chekinish bilan belgilanadi, odatda 4 ta boʻsh joy. Shuning uchun ortiqcha yoki kam chekinish xato beradi."
+    },
+    {
+      "id": 5,
+      "topic": "Sintaksis va chekinish",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nolma = 4; nok = 6; print(olma + nok)\n```",
+      "code": "olma = 4; nok = 6; print(olma + nok)",
+      "correct_answer": "10",
+      "explanation": "`;` bir qatorda bir nechta buyruqni ajratadi. 4 + 6 = 10."
+    },
+    {
+      "id": 6,
+      "topic": "Sintaksis va chekinish",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\njami = (12000 +\n        8500 +\n        4500)\nprint(jami)\n```",
+      "code": "jami = (12000 +\n        8500 +\n        4500)\nprint(jami)",
+      "correct_answer": "25000",
+      "explanation": "Qavs ichidagi ifodani bir necha qatorga boʻlish mumkin, u bitta ifoda sifatida hisoblanadi: 12000 + 8500 + 4500 = 25000."
+    },
+    {
+      "id": 7,
+      "topic": "Sintaksis va chekinish",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi qatorlardan qaysilari xatosiz ishlaydi va `Salom` chiqaradi?",
+      "options": [
+        "A) `print(\"Salom\"`",
+        "B) `print('Salom')`",
+        "C) `Print(\"Salom\")`",
+        "D) `print(\"Salom\")`"
+      ],
+      "correct_answer": [
+        "B",
+        "D"
+      ],
+      "explanation": "Bittalik va qoʻshtirnoq bir xil ishlaydi. `Print` — notoʻgʻri nom (NameError), yopilmagan qavs esa SyntaxError beradi."
+    },
+    {
+      "id": 8,
+      "topic": "Sintaksis va chekinish",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi kod ishga tushirilsa nima boʻladi?\n\n```python\nprint(\"Boshlandi\")\n  soni = 3\nprint(soni)\n```",
+      "code": "print(\"Boshlandi\")\n  soni = 3\nprint(soni)",
+      "options": [
+        "A) Hech narsa chiqmaydi — darhol IndentationError",
+        "B) Boshlandi chiqadi, keyin IndentationError",
+        "C) Boshlandi va 3 chiqadi",
+        "D) Faqat 3 chiqadi"
+      ],
+      "correct_answer": "A",
+      "explanation": "Python avval butun faylni tekshiradi. Chekinish xatosi topilsa, birinchi qator ham bajarilmaydi."
+    },
+    {
+      "id": 9,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"Non\", \"Sut\", \"Choy\")\n```",
+      "code": "print(\"Non\", \"Sut\", \"Choy\")",
+      "options": [
+        "A) NonSutChoy",
+        "B) Non Sut Choy",
+        "C) Non, Sut, Choy",
+        "D) Non,Sut,Choy"
+      ],
+      "correct_answer": "B",
+      "explanation": "Vergul bilan berilgan qiymatlar orasiga print avtomatik bitta boʻsh joy qoʻyadi."
+    },
+    {
+      "id": 10,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(2026, 9, 1, sep=\"-\")\n```",
+      "code": "print(2026, 9, 1, sep=\"-\")",
+      "options": [
+        "A) 2026 9 1",
+        "B) 2026-09-01",
+        "C) 2026-9-1",
+        "D) -2026-9-1-"
+      ],
+      "correct_answer": "C",
+      "explanation": "`sep` qiymatlar orasidagi ajratuvchini belgilaydi, bu yerda `-`."
+    },
+    {
+      "id": 11,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"Yuklanmoqda\", end=\"\")\nprint(\"...\", end=\" \")\nprint(\"100%\")\n```",
+      "code": "print(\"Yuklanmoqda\", end=\"\")\nprint(\"...\", end=\" \")\nprint(\"100%\")",
+      "correct_answer": "Yuklanmoqda... 100%",
+      "explanation": "Birinchi print oxirida hech narsa qoʻymaydi, ikkinchisi boʻsh joy qoʻyadi, shuning uchun hammasi bitta qatorda chiqadi."
+    },
+    {
+      "id": 12,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "`print()` dagi qaysi parametr qiymatlar orasiga qoʻyiladigan belgini oʻzgartiradi?",
+      "options": [
+        "A) join",
+        "B) sep",
+        "C) split",
+        "D) end"
+      ],
+      "correct_answer": "B",
+      "explanation": "`sep` — qiymatlar orasidagi ajratuvchi, `end` — print oxiridagi belgi. split va join — satr metodlari."
+    },
+    {
+      "id": 13,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"Narx:\", 3 * 15000, \"soʻm\")\n```",
+      "code": "print(\"Narx:\", 3 * 15000, \"soʻm\")",
+      "options": [
+        "A) Narx: 45000 soʻm",
+        "B) Narx: 3 * 15000 soʻm",
+        "C) Narx:45000soʻm",
+        "D) Narx: 315000 soʻm"
+      ],
+      "correct_answer": "A",
+      "explanation": "Ifoda avval hisoblanadi (45000), keyin qiymatlar boʻsh joy bilan chiqariladi."
+    },
+    {
+      "id": 14,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "fill_blank",
+      "difficulty": "medium",
+      "question": "Natija `olma, nok, uzum` boʻlishi uchun boʻsh joyga nima yozilishi kerak?\n\n```python\nprint(\"olma\", \"nok\", \"uzum\", ____=\", \")\n```",
+      "code": "print(\"olma\", \"nok\", \"uzum\", ____=\", \")",
+      "correct_answer": "sep",
+      "explanation": "`sep=\", \"` qiymatlar orasiga vergul va boʻsh joy qoʻyadi."
+    },
+    {
+      "id": 15,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"A\", \"B\", sep=\"\")\nprint(\"C\")\n```",
+      "code": "print(\"A\", \"B\", sep=\"\")\nprint(\"C\")",
+      "correct_answer": "AB\nC",
+      "explanation": "`sep=\"\"` boʻlgani uchun A va B yopishib chiqadi. Keyingi print yangi qatordan boshlanadi."
+    },
+    {
+      "id": 16,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"1\", \"2\", \"3\", sep=\"+\", end=\"=6\\n\")\n```",
+      "code": "print(\"1\", \"2\", \"3\", sep=\"+\", end=\"=6\\n\")",
+      "correct_answer": "1+2+3=6",
+      "explanation": "Qiymatlar orasiga `+` qoʻyiladi, oxiriga esa `=6` va yangi qator qoʻshiladi."
+    },
+    {
+      "id": 17,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "Argumentsiz `print()` ekranga boʻsh qator chiqaradi.",
+      "correct_answer": "True",
+      "explanation": "`print()` faqat `end` qiymatini (standart holatda yangi qator) chiqaradi, natijada boʻsh qator paydo boʻladi."
+    },
+    {
+      "id": 18,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"Jami\", end=\": \")\nprint(75000)\n```",
+      "code": "print(\"Jami\", end=\": \")\nprint(75000)",
+      "correct_answer": "Jami: 75000",
+      "explanation": "Birinchi print yangi qatorga oʻtmaydi, oxiriga `: ` qoʻyadi. Ikkinchi print shu qatorni davom ettiradi."
+    },
+    {
+      "id": 19,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "multiple_choice",
+      "difficulty": "hard",
+      "question": "Qaysi kodlar ekranga aynan `10-20-30` chiqaradi?",
+      "options": [
+        "A) `print(\"10-20-30\")`",
+        "B) `print(10, 20, 30, end=\"-\")`",
+        "C) `print(10, 20, 30, sep=\"-\")`",
+        "D) `print(10-20-30)`"
+      ],
+      "correct_answer": [
+        "A",
+        "C"
+      ],
+      "explanation": "`print(10-20-30)` ayirishni hisoblab -40 chiqaradi. `end=\"-\"` esa faqat oxiriga taʼsir qiladi: `10 20 30-`."
+    },
+    {
+      "id": 20,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "fill_blank",
+      "difficulty": "medium",
+      "question": "Ikki print natijasi bitta qatorda `Bugun dars bor` boʻlishi uchun boʻsh joyga nima yoziladi?\n\n```python\nprint(\"Bugun\", ____=\"\")\nprint(\" dars bor\")\n```",
+      "code": "print(\"Bugun\", ____=\"\")\nprint(\" dars bor\")",
+      "correct_answer": "end",
+      "explanation": "`end=\"\"` birinchi print oxirida yangi qatorga oʻtishni oʻchiradi."
+    },
+    {
+      "id": 21,
+      "topic": "print() — matn va sonlarni chiqarish",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(2026, \"-\", 11, sep=\"\")\n```",
+      "code": "print(2026, \"-\", 11, sep=\"\")",
+      "correct_answer": "2026-11",
+      "explanation": "`sep=\"\"` — qiymatlar orasiga hech narsa qoʻyilmaydi."
+    },
+    {
+      "id": 22,
+      "topic": "Izohlar",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\n# Doʻkon dasturi\nnarx = 12000  # bitta daftar narxi\nprint(narx * 2)\n```",
+      "code": "# Doʻkon dasturi\nnarx = 12000  # bitta daftar narxi\nprint(narx * 2)",
+      "options": [
+        "A) 24000",
+        "B) SyntaxError xatosi",
+        "C) 1200012000",
+        "D) 12000"
+      ],
+      "correct_answer": "A",
+      "explanation": "`#` dan keyingi matn bajarilmaydi. 12000 * 2 = 24000."
+    },
+    {
+      "id": 23,
+      "topic": "Izohlar",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"Parol # 1234\")\n```",
+      "code": "print(\"Parol # 1234\")",
+      "correct_answer": "Parol # 1234",
+      "explanation": "Qoʻshtirnoq ichidagi `#` izoh emas, satrning bir qismi."
+    },
+    {
+      "id": 24,
+      "topic": "Izohlar",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Pythonda bir qatorli izoh qaysi belgi bilan boshlanadi?",
+      "options": [
+        "A) --",
+        "B) /*",
+        "C) //",
+        "D) #"
+      ],
+      "correct_answer": "D",
+      "explanation": "Pythonda izoh `#` bilan boshlanadi. `//` — butun boʻlish operatori."
+    },
+    {
+      "id": 25,
+      "topic": "Izohlar",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "Hech qaysi oʻzgaruvchiga saqlanmagan `\"\"\"...\"\"\"` matni dastur natijasiga taʼsir qilmaydi, shuning uchun uni koʻp qatorli izoh sifatida ishlatish mumkin.",
+      "correct_answer": "True",
+      "explanation": "Bunday satr yaratiladi, lekin hech qayerda ishlatilmaydi, shuning uchun dastur natijasiga taʼsir qilmaydi."
+    },
+    {
+      "id": 26,
+      "topic": "Izohlar",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Qaysi izoh eng foydali?",
+      "options": [
+        "A) `soliq = 0.12  # soliq`",
+        "B) `soliq = 0.12  # 0.12 ga teng`",
+        "C) `soliq = 0.12  # oʻzgaruvchi yaratildi`",
+        "D) `soliq = 0.12  # QQS stavkasi, 2026-yil qonuni boʻyicha`"
+      ],
+      "correct_answer": "D",
+      "explanation": "Yaxshi izoh kod nima qilishini takrorlamaydi, balki *nima uchun* shunday ekanini tushuntiradi."
+    },
+    {
+      "id": 27,
+      "topic": "Izohlar",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nx = 10  # x = 20\n# x = 30\nprint(x)\n```",
+      "code": "x = 10  # x = 20\n# x = 30\nprint(x)",
+      "options": [
+        "A) NameError xatosi",
+        "B) 10",
+        "C) 30",
+        "D) 20"
+      ],
+      "correct_answer": "B",
+      "explanation": "Birinchi qatorda faqat `x = 10` bajariladi, qolgan qismi izoh. Ikkinchi qator butunlay izoh."
+    },
+    {
+      "id": 28,
+      "topic": "Oʻzgaruvchilar va nomlash",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nball = 70\nball = ball + 15\nprint(ball)\n```",
+      "code": "ball = 70\nball = ball + 15\nprint(ball)",
+      "correct_answer": "85",
+      "explanation": "Avval oʻng tomon hisoblanadi: 70 + 15 = 85, keyin natija `ball` ga yoziladi."
+    },
+    {
+      "id": 29,
+      "topic": "Oʻzgaruvchilar va nomlash",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Qaysi oʻzgaruvchi nomi notoʻgʻri?",
+      "options": [
+        "A) guruh_2",
+        "B) 2-guruh",
+        "C) guruh2",
+        "D) _guruh"
+      ],
+      "correct_answer": "B",
+      "explanation": "Nom raqam bilan boshlanmaydi va unda `-` belgisi boʻlmaydi."
+    },
+    {
+      "id": 30,
+      "topic": "Oʻzgaruvchilar va nomlash",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "Qaysilari toʻgʻri oʻzgaruvchi nomi boʻla oladi?",
+      "options": [
+        "A) oylik_maosh",
+        "B) _soni",
+        "C) class",
+        "D) narx-1"
+      ],
+      "correct_answer": [
+        "A",
+        "B"
+      ],
+      "explanation": "`class` — Python kalit soʻzi, `narx-1` da `-` bor. `oylik_maosh` va `_soni` qoidaga mos."
+    },
+    {
+      "id": 31,
+      "topic": "Oʻzgaruvchilar va nomlash",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\na = 5\nb = a\na = 12\nprint(b)\n```",
+      "code": "a = 5\nb = a\na = 12\nprint(b)",
+      "correct_answer": "5",
+      "explanation": "`b = a` paytida b ga 5 yozildi. Keyin a oʻzgargani b ga taʼsir qilmaydi."
+    },
+    {
+      "id": 32,
+      "topic": "Oʻzgaruvchilar va nomlash",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "`input()` funksiyasi qanday turdagi qiymat qaytaradi?",
+      "options": [
+        "A) Foydalanuvchi nima yozsa, shu turdagi qiymat",
+        "B) Mantiqiy qiymat (bool)",
+        "C) Har doim satr (str)",
+        "D) Har doim butun son (int)"
+      ],
+      "correct_answer": "C",
+      "explanation": "`input()` doim matn qaytaradi. Son kerak boʻlsa `int()` yoki `float()` ishlatiladi."
+    },
+    {
+      "id": 33,
+      "topic": "Oʻzgaruvchilar va nomlash",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nNarx = 5000\nnarx = 7000\nprint(Narx)\n```",
+      "code": "Narx = 5000\nnarx = 7000\nprint(Narx)",
+      "options": [
+        "A) 7000",
+        "B) NameError xatosi",
+        "C) 5000",
+        "D) 5000 7000"
+      ],
+      "correct_answer": "C",
+      "explanation": "`Narx` va `narx` — ikki xil oʻzgaruvchi, chunki katta-kichik harf farqlanadi."
+    },
+    {
+      "id": 34,
+      "topic": "Oʻzgaruvchilar va nomlash",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Pythonda qabul qilingan **snake_case** uslubiga qaysi nom mos keladi?",
+      "options": [
+        "A) oylik_maosh",
+        "B) OylikMaosh",
+        "C) OYLIKMAOSH",
+        "D) oylikMaosh"
+      ],
+      "correct_answer": "A",
+      "explanation": "snake_case — kichik harflar va soʻzlar orasida pastki chiziq: `oylik_maosh`, `talaba_ismi`."
+    },
+    {
+      "id": 35,
+      "topic": "Oʻzgaruvchilar va nomlash",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "`x = x + 1` qatori nimani anglatadi?",
+      "options": [
+        "A) x va x + 1 tengligini tekshiradi",
+        "B) x ga 1 qiymatini beradi",
+        "C) x ning eski qiymatiga 1 qoʻshib, natijani yana x ga yozadi",
+        "D) Xato beradi, chunki tenglamaning yechimi yoʻq"
+      ],
+      "correct_answer": "C",
+      "explanation": "`=` tenglik emas, qiymat berish: avval oʻng tomon hisoblanadi, keyin chap tomondagi nomga yoziladi."
+    },
+    {
+      "id": 36,
+      "topic": "Oʻzgaruvchilar va nomlash",
+      "type": "fill_blank",
+      "difficulty": "medium",
+      "question": "Foydalanuvchi tugʻilgan yilini kiritadi, dastur yoshini hisoblaydi. Boʻsh joyga nima yoziladi?\n\n```python\nyil = ____(input())\nprint(2026 - yil)\n```",
+      "code": "yil = ____(input())\nprint(2026 - yil)",
+      "correct_answer": "int",
+      "explanation": "`input()` satr qaytaradi; ayirish uchun uni `int()` bilan butun songa aylantirish kerak."
+    },
+    {
+      "id": 37,
+      "topic": "Oʻzgaruvchilar va nomlash",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "Pythonda oʻzgaruvchidan foydalanishdan oldin uning turini eʼlon qilish shart (masalan `int yosh = 16`).",
+      "correct_answer": "False",
+      "explanation": "Pythonda tur qiymatdan avtomatik aniqlanadi: `yosh = 16` yetarli. `int yosh = 16` — SyntaxError."
+    },
+    {
+      "id": 38,
+      "topic": "Oʻzgaruvchilar va nomlash",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nx = 3\ny = x * 2\nx = 10\ny = y + x\nprint(x, y)\n```",
+      "code": "x = 3\ny = x * 2\nx = 10\ny = y + x\nprint(x, y)",
+      "options": [
+        "A) 10 16",
+        "B) 10 6",
+        "C) 10 20",
+        "D) 3 16"
+      ],
+      "correct_answer": "A",
+      "explanation": "y = 3 * 2 = 6. Keyin x = 10, y = 6 + 10 = 16."
+    },
+    {
+      "id": 39,
+      "topic": "Oʻzgaruvchilar va nomlash",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi kod ishga tushirilsa nima boʻladi?\n\n```python\nism = \"Dilnoza\"\nprint(Ism)\n```",
+      "code": "ism = \"Dilnoza\"\nprint(Ism)",
+      "options": [
+        "A) Dilnoza",
+        "B) Ism",
+        "C) NameError xatosi chiqadi",
+        "D) None"
+      ],
+      "correct_answer": "C",
+      "explanation": "`Ism` (katta I bilan) nomli oʻzgaruvchi yaratilmagan. `ism` va `Ism` — turli nomlar."
+    },
+    {
+      "id": 40,
+      "topic": "Bir nechta qiymat berish",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nmahsulot, narx, soni = \"Daftar\", 5000, 3\nprint(mahsulot, narx * soni)\n```",
+      "code": "mahsulot, narx, soni = \"Daftar\", 5000, 3\nprint(mahsulot, narx * soni)",
+      "correct_answer": "Daftar 15000",
+      "explanation": "Har bir oʻzgaruvchi oʻz tartibidagi qiymatni oladi: narx * soni = 15000."
+    },
+    {
+      "id": 41,
+      "topic": "Bir nechta qiymat berish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nchap, ong = \"olma\", \"nok\"\nchap, ong = ong, chap\nprint(chap, ong)\n```",
+      "code": "chap, ong = \"olma\", \"nok\"\nchap, ong = ong, chap\nprint(chap, ong)",
+      "options": [
+        "A) olma nok",
+        "B) nok nok",
+        "C) nok olma",
+        "D) olma olma"
+      ],
+      "correct_answer": "C",
+      "explanation": "`a, b = b, a` — qiymatlarni almashtirishning Python usuli."
+    },
+    {
+      "id": 42,
+      "topic": "Bir nechta qiymat berish",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\na = b = c = 0\nb = 5\nprint(a, b, c)\n```",
+      "code": "a = b = c = 0\nb = 5\nprint(a, b, c)",
+      "correct_answer": "0 5 0",
+      "explanation": "Uchalasiga 0 berildi, keyin faqat b oʻzgardi."
+    },
+    {
+      "id": 43,
+      "topic": "Bir nechta qiymat berish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi kod ishga tushirilsa nima boʻladi?\n\n```python\nx, y = 10, 20, 30\nprint(x, y)\n```",
+      "code": "x, y = 10, 20, 30\nprint(x, y)",
+      "options": [
+        "A) ValueError xatosi chiqadi",
+        "B) 10 20 30",
+        "C) Hech narsa chiqmaydi",
+        "D) 10 20"
+      ],
+      "correct_answer": "A",
+      "explanation": "Chap tomonda 2 ta, oʻng tomonda 3 ta element. Ularning soni teng boʻlishi shart."
+    },
+    {
+      "id": 44,
+      "topic": "Bir nechta qiymat berish",
+      "type": "fill_blank",
+      "difficulty": "easy",
+      "question": "Bir qatorda kiritilgan ikki sonni (masalan `3 7`) oʻqish uchun boʻsh joyga nima yoziladi?\n\n```python\na, b = ____(int, input().split())\nprint(a + b)\n```",
+      "code": "a, b = ____(int, input().split())\nprint(a + b)",
+      "correct_answer": "map",
+      "explanation": "`map(int, ...)` split natijasidagi har bir qismni butun songa aylantiradi."
+    },
+    {
+      "id": 45,
+      "topic": "Bir nechta qiymat berish",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\na, b = 3, 8\na, b = b, a + b\nprint(a, b)\n```",
+      "code": "a, b = 3, 8\na, b = b, a + b\nprint(a, b)",
+      "options": [
+        "A) 8 11",
+        "B) 8 8",
+        "C) 8 16",
+        "D) 3 11"
+      ],
+      "correct_answer": "A",
+      "explanation": "Oʻng tomon toʻliq hisoblanadi, keyin yoziladi: b = 8 va a + b = 11 (eski a = 3 bilan)."
+    },
+    {
+      "id": 46,
+      "topic": "Bir nechta qiymat berish",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nsavat1, savat2 = 4, 9\nsavat1 = savat2\nsavat2 = savat1\nprint(savat1, savat2)\n```",
+      "code": "savat1, savat2 = 4, 9\nsavat1 = savat2\nsavat2 = savat1\nprint(savat1, savat2)",
+      "options": [
+        "A) 4 4",
+        "B) 9 9",
+        "C) 9 4",
+        "D) 4 9"
+      ],
+      "correct_answer": "B",
+      "explanation": "`savat1 = savat2` dan keyin ikkalasi ham 9. Eski 4 qiymati yoʻqoldi. Toʻgʻri almashtirish: `savat1, savat2 = savat2, savat1`."
+    },
+    {
+      "id": 47,
+      "topic": "Bir nechta qiymat berish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Foydalanuvchi `3 7` kiritdi. Dastur nima chiqaradi?\n\n```python\na, b = input().split()\nprint(a + b)\n```",
+      "code": "a, b = input().split()\nprint(a + b)",
+      "options": [
+        "A) 10",
+        "B) 37",
+        "C) 3 7",
+        "D) TypeError"
+      ],
+      "correct_answer": "B",
+      "explanation": "`split()` satrlar qaytaradi; ular songa aylantirilmagan, shuning uchun `+` ularni yopishtiradi."
+    },
+    {
+      "id": 48,
+      "topic": "Bir nechta qiymat berish",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "`a, b = b, a` ifodasi uchinchi oʻzgaruvchisiz `a` va `b` qiymatlarini almashtiradi.",
+      "correct_answer": "True",
+      "explanation": "Avval oʻng tomondagi juftlik yasaladi, keyin qiymatlar tartib bilan a va b ga yoziladi."
+    },
+    {
+      "id": 49,
+      "topic": "Bir nechta qiymat berish",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\ndaqiqa = 135\nsoat, qoldiq = daqiqa // 60, daqiqa % 60\nprint(soat, \"soat\", qoldiq, \"daqiqa\")\n```",
+      "code": "daqiqa = 135\nsoat, qoldiq = daqiqa // 60, daqiqa % 60\nprint(soat, \"soat\", qoldiq, \"daqiqa\")",
+      "correct_answer": "2 soat 15 daqiqa",
+      "explanation": "135 // 60 = 2, 135 % 60 = 15."
+    },
+    {
+      "id": 50,
+      "topic": "Maʼlumot turlari",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(type(25000))\n```",
+      "code": "print(type(25000))",
+      "options": [
+        "A) <class 'str'>",
+        "B) <class 'number'>",
+        "C) <class 'float'>",
+        "D) <class 'int'>"
+      ],
+      "correct_answer": "D",
+      "explanation": "Butun son — `int`."
+    },
+    {
+      "id": 51,
+      "topic": "Maʼlumot turlari",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Doʻkon koordinatasi `(41.31, 69.28)` koʻrinishida saqlangan. Bu qiymat qaysi turga kiradi?\n\n```python\njoy = (41.31, 69.28)\nprint(type(joy))\n```",
+      "code": "joy = (41.31, 69.28)\nprint(type(joy))",
+      "options": [
+        "A) set",
+        "B) list",
+        "C) float",
+        "D) tuple"
+      ],
+      "correct_answer": "D",
+      "explanation": "Oddiy qavs ichidagi vergul bilan ajratilgan qiymatlar — kortej (tuple)."
+    },
+    {
+      "id": 52,
+      "topic": "Maʼlumot turlari",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "`[\"olma\", \"nok\", \"uzum\"]` qiymati qaysi turga kiradi?",
+      "options": [
+        "A) set",
+        "B) tuple",
+        "C) list",
+        "D) dict"
+      ],
+      "correct_answer": "C",
+      "explanation": "Kvadrat qavs `[ ]` — roʻyxat (list)."
+    },
+    {
+      "id": 53,
+      "topic": "Maʼlumot turlari",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Qaysi qiymat `float` turida?",
+      "options": [
+        "A) \"9.5\"",
+        "B) 9.5",
+        "C) 95",
+        "D) True"
+      ],
+      "correct_answer": "B",
+      "explanation": "`\"9.5\"` — satr, `95` — int, `True` — bool."
+    },
+    {
+      "id": 54,
+      "topic": "Maʼlumot turlari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"7\" * 3)\n```",
+      "code": "print(\"7\" * 3)",
+      "options": [
+        "A) 777",
+        "B) 7 7 7",
+        "C) TypeError xatosi",
+        "D) 21"
+      ],
+      "correct_answer": "A",
+      "explanation": "Satrni songa koʻpaytirish uni takrorlaydi."
+    },
+    {
+      "id": 55,
+      "topic": "Maʼlumot turlari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nranglar = {\"qizil\", \"yashil\", \"koʻk\"}\nprint(type(ranglar))\n```",
+      "code": "ranglar = {\"qizil\", \"yashil\", \"koʻk\"}\nprint(type(ranglar))",
+      "correct_answer": "<class 'set'>",
+      "explanation": "Figurali qavs ichida faqat qiymatlar (kalit: qiymat juftliklari emas) — toʻplam (set)."
+    },
+    {
+      "id": 56,
+      "topic": "Maʼlumot turlari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "`{\"ism\": \"Ali\", \"yosh\": 17}` qiymati qaysi turga kiradi?",
+      "options": [
+        "A) list",
+        "B) tuple",
+        "C) dict",
+        "D) set"
+      ],
+      "correct_answer": "C",
+      "explanation": "`kalit: qiymat` juftliklari figurali qavsda — lugʻat (dict)."
+    },
+    {
+      "id": 57,
+      "topic": "Maʼlumot turlari",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "Quyidagilardan qaysilari `str` turida?",
+      "options": [
+        "A) \"123\"",
+        "B) 'True'",
+        "C) True",
+        "D) 123"
+      ],
+      "correct_answer": [
+        "A",
+        "B"
+      ],
+      "explanation": "Qoʻshtirnoq (bittalik yoki qoʻsh) ichidagi har qanday matn — str. Qoʻshtirnoqsiz `123` — int, `True` — bool."
+    },
+    {
+      "id": 58,
+      "topic": "Maʼlumot turlari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nx = 10\nprint(type(x))\nx = \"oʻn\"\nprint(type(x))\n```",
+      "code": "x = 10\nprint(type(x))\nx = \"oʻn\"\nprint(type(x))",
+      "correct_answer": "<class 'int'>\n<class 'str'>",
+      "explanation": "Oʻzgaruvchining turi unda saqlangan qiymatga qarab oʻzgaradi."
+    },
+    {
+      "id": 59,
+      "topic": "Maʼlumot turlari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi kod ishga tushirilsa nima boʻladi?\n\n```python\nyosh = 17\nprint(\"Yosh: \" + yosh)\n```",
+      "code": "yosh = 17\nprint(\"Yosh: \" + yosh)",
+      "options": [
+        "A) Yosh: 17",
+        "B) 17",
+        "C) Yosh:",
+        "D) TypeError xatosi chiqadi"
+      ],
+      "correct_answer": "D",
+      "explanation": "Satrga `+` bilan son qoʻshib boʻlmaydi. `str(yosh)` yoki vergul ishlatish kerak."
+    },
+    {
+      "id": 60,
+      "topic": "Maʼlumot turlari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(isinstance(4.0, int), isinstance(4.0, float))\n```",
+      "code": "print(isinstance(4.0, int), isinstance(4.0, float))",
+      "correct_answer": "False True",
+      "explanation": "4.0 — kasr son (float), garchi qiymati butun boʻlsa ham."
+    },
+    {
+      "id": 61,
+      "topic": "Maʼlumot turlari",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "`5`, `5.0` va `\"5\"` — Pythonda uch xil turdagi qiymatlar.",
+      "correct_answer": "True",
+      "explanation": "Ular mos ravishda int, float va str turlariga kiradi."
+    },
+    {
+      "id": 62,
+      "topic": "Maʼlumot turlari",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(type(10 / 2))\nprint(type(10 // 2))\n```",
+      "code": "print(type(10 / 2))\nprint(type(10 // 2))",
+      "correct_answer": "<class 'float'>\n<class 'int'>",
+      "explanation": "`/` doim float qaytaradi (5.0), `//` butun sonlarda int qaytaradi (5)."
+    },
+    {
+      "id": 63,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Foydalanuvchi avval `2.5`, keyin `3` kiritdi. Dastur nima chiqaradi?\n\n```python\na = input()\nb = input()\nprint(float(a) + int(b), a * int(b))\n```",
+      "code": "a = input()\nb = input()\nprint(float(a) + int(b), a * int(b))",
+      "correct_answer": "5.5 2.52.52.5",
+      "explanation": "float(\"2.5\") + int(\"3\") = 5.5. `a` hali satr, shuning uchun a * 3 satrni 3 marta takrorlaydi."
+    },
+    {
+      "id": 64,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(int(\"45\") + int(True))\n```",
+      "code": "print(int(\"45\") + int(True))",
+      "correct_answer": "46",
+      "explanation": "`int(\"45\")` = 45, `int(True)` = 1, chunki True — 1 ga teng. 45 + 1 = 46."
+    },
+    {
+      "id": 65,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(int(-2.7))\n```",
+      "code": "print(int(-2.7))",
+      "options": [
+        "A) -2",
+        "B) -3",
+        "C) ValueError",
+        "D) -2.7"
+      ],
+      "correct_answer": "A",
+      "explanation": "`int()` yaxlitlamaydi, kasr qismini tashlab yuboradi: -2.7 → -2 (nolga qarab)."
+    },
+    {
+      "id": 66,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "`int(\"3.5\")` ishga tushirilsa nima boʻladi?\n\n```python\nprint(int(\"3.5\"))\n```",
+      "code": "print(int(\"3.5\"))",
+      "options": [
+        "A) 4",
+        "B) 3",
+        "C) 3.5",
+        "D) ValueError xatosi chiqadi"
+      ],
+      "correct_answer": "D",
+      "explanation": "`int()` nuqtali matnni toʻgʻridan-toʻgʻri aylantirmaydi. Toʻgʻri usul: `int(float(\"3.5\"))`."
+    },
+    {
+      "id": 67,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(float(7))\n```",
+      "code": "print(float(7))",
+      "options": [
+        "A) 7.0",
+        "B) 7",
+        "C) 7.00",
+        "D) TypeError xatosi"
+      ],
+      "correct_answer": "A",
+      "explanation": "Butun son float ga aylantirilsa `.0` qoʻshiladi."
+    },
+    {
+      "id": 68,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nnarx = 1234.5678\nprint(round(narx, -2))\n```",
+      "code": "narx = 1234.5678\nprint(round(narx, -2))",
+      "correct_answer": "1200.0",
+      "explanation": "Manfiy ikkinchi argument verguldan oldingi xonalarga yaxlitlaydi: yuzlikkacha → 1200.0."
+    },
+    {
+      "id": 69,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(int(float(\"4.75\")))\n```",
+      "code": "print(int(float(\"4.75\")))",
+      "correct_answer": "4",
+      "explanation": "Avval 4.75 kasr songa, keyin int ga: kasr qismi tashlanadi."
+    },
+    {
+      "id": 70,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(bool(0), bool(-3), bool(\"\"))\n```",
+      "code": "print(bool(0), bool(-3), bool(\"\"))",
+      "options": [
+        "A) False False False",
+        "B) False True True",
+        "C) True True False",
+        "D) False True False"
+      ],
+      "correct_answer": "D",
+      "explanation": "0 va boʻsh satr — False, nol boʻlmagan har qanday son — True."
+    },
+    {
+      "id": 71,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nnarx = 4.6\nprint(int(narx), round(narx))\n```",
+      "code": "narx = 4.6\nprint(int(narx), round(narx))",
+      "options": [
+        "A) 4 5",
+        "B) 4 4",
+        "C) 5 4",
+        "D) 5 5"
+      ],
+      "correct_answer": "A",
+      "explanation": "`int()` kasrni tashlaydi (4), `round()` yaqin butun songa yaxlitlaydi (5)."
+    },
+    {
+      "id": 72,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(round(2.5), round(3.5))\n```",
+      "code": "print(round(2.5), round(3.5))",
+      "correct_answer": "2 4",
+      "explanation": "Python `round()` aynan oʻrtadagi qiymatni eng yaqin *juft* songa yaxlitlaydi: 2.5 → 2, 3.5 → 4."
+    },
+    {
+      "id": 73,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "fill_blank",
+      "difficulty": "medium",
+      "question": "`+` bilan yopishtirish uchun boʻsh joyga qaysi funksiya yoziladi?\n\n```python\nnarx = 25000\nprint(\"Narx: \" + ____(narx) + \" soʻm\")\n```",
+      "code": "narx = 25000\nprint(\"Narx: \" + ____(narx) + \" soʻm\")",
+      "correct_answer": "str",
+      "explanation": "Satrga faqat satr qoʻshish mumkin, shuning uchun son `str()` bilan matnga aylantiriladi."
+    },
+    {
+      "id": 74,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(round(12.3456, 2))\n```",
+      "code": "print(round(12.3456, 2))",
+      "options": [
+        "A) 12.34",
+        "B) 12.0",
+        "C) 12.35",
+        "D) 12.3456"
+      ],
+      "correct_answer": "C",
+      "explanation": "Ikkinchi argument — verguldan keyingi xonalar soni."
+    },
+    {
+      "id": 75,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "multiple_choice",
+      "difficulty": "hard",
+      "question": "Qaysi qatorlar ValueError xatosini beradi?",
+      "options": [
+        "A) `int(\"12a\")`",
+        "B) `int(7.8)`",
+        "C) `int(\" 42 \")`",
+        "D) `float(\"3,5\")`"
+      ],
+      "correct_answer": [
+        "A",
+        "D"
+      ],
+      "explanation": "Harf aralashgan matn va vergulli kasr aylantirilmaydi. `int(\" 42 \")` atrofdagi boʻsh joylarni eʼtiborsiz qoldirib 42 beradi, `int(7.8)` esa 7."
+    },
+    {
+      "id": 76,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Foydalanuvchi avval `12`, keyin `8` kiritdi. Dastur nima chiqaradi?\n\n```python\na = input()\nb = input()\nprint(a + b)\nprint(int(a) + int(b))\n```",
+      "code": "a = input()\nb = input()\nprint(a + b)\nprint(int(a) + int(b))",
+      "correct_answer": "128\n20",
+      "explanation": "input() satr qaytaradi: `\"12\" + \"8\"` = `\"128\"`. int ga aylantirilgandan keyin 12 + 8 = 20."
+    },
+    {
+      "id": 77,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "`int(3.99)` sonni yaxlitlab 4 qaytaradi.",
+      "correct_answer": "False",
+      "explanation": "`int()` kasr qismini tashlaydi va 3 qaytaradi. Yaxlitlash uchun `round()` ishlatiladi."
+    },
+    {
+      "id": 78,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(bool(\"False\"), bool(\"0\"), bool(\" \"))\n```",
+      "code": "print(bool(\"False\"), bool(\"0\"), bool(\" \"))",
+      "correct_answer": "True True True",
+      "explanation": "Boʻsh boʻlmagan har qanday satr True. Matnning mazmuni (\"False\", \"0\") ahamiyatsiz."
+    },
+    {
+      "id": 79,
+      "topic": "Turlarni oʻzgartirish",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(float(\"1e3\"))\n```",
+      "code": "print(float(\"1e3\"))",
+      "options": [
+        "A) 1000.0",
+        "B) 1e3",
+        "C) 1000",
+        "D) ValueError"
+      ],
+      "correct_answer": "A",
+      "explanation": "`\"1e3\"` — ilmiy yozuv (1 × 10³). float() uni 1000.0 ga aylantiradi."
+    },
+    {
+      "id": 80,
+      "topic": "Sonlar: int, float, complex",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nolma = 17\nbolalar = 5\nprint(olma // bolalar, olma % bolalar)\n```",
+      "code": "olma = 17\nbolalar = 5\nprint(olma // bolalar, olma % bolalar)",
+      "options": [
+        "A) 3.4 2",
+        "B) 3 3",
+        "C) 3 2",
+        "D) 2 3"
+      ],
+      "correct_answer": "C",
+      "explanation": "Har bir bolaga 17 // 5 = 3 tadan olma tegadi, 17 % 5 = 2 tasi ortib qoladi."
+    },
+    {
+      "id": 81,
+      "topic": "Sonlar: int, float, complex",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(2 ** 100)\n```",
+      "code": "print(2 ** 100)",
+      "correct_answer": "1267650600228229401496703205376",
+      "explanation": "Pythonda butun sonlar chegaralanmagan, shuning uchun juda katta natija ham aniq chiqadi."
+    },
+    {
+      "id": 82,
+      "topic": "Sonlar: int, float, complex",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Butun son `n` ning oxirgi raqamini qaysi ifoda beradi?",
+      "options": [
+        "A) n ** 10",
+        "B) n % 10",
+        "C) n / 10",
+        "D) n // 10"
+      ],
+      "correct_answer": "B",
+      "explanation": "10 ga boʻlgandagi qoldiq — oxirgi raqam. `n // 10` esa oxirgi raqamni olib tashlaydi."
+    },
+    {
+      "id": 83,
+      "topic": "Sonlar: int, float, complex",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(pow(2, 10), 1.5e6)\n```",
+      "code": "print(pow(2, 10), 1.5e6)",
+      "correct_answer": "1024 1500000.0",
+      "explanation": "`pow(2, 10)` = 2 ** 10 = 1024. `1.5e6` — 1.5 × 10⁶, u float: 1500000.0."
+    },
+    {
+      "id": 84,
+      "topic": "Sonlar: int, float, complex",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(2 ** 3 ** 2)\n```",
+      "code": "print(2 ** 3 ** 2)",
+      "correct_answer": "512",
+      "explanation": "`**` oʻngdan chapga hisoblanadi: 3 ** 2 = 9, keyin 2 ** 9 = 512."
+    },
+    {
+      "id": 85,
+      "topic": "Sonlar: int, float, complex",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(-7 // 2, -7 % 2)\n```",
+      "code": "print(-7 // 2, -7 % 2)",
+      "correct_answer": "-4 1",
+      "explanation": "`//` pastga (manfiy tomonga) yaxlitlaydi: -3.5 → -4. Qoldiq: -7 - (-4 × 2) = 1."
+    },
+    {
+      "id": 86,
+      "topic": "Sonlar: int, float, complex",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(0.1 + 0.2 == 0.3)\n```",
+      "code": "print(0.1 + 0.2 == 0.3)",
+      "options": [
+        "A) 0.3",
+        "B) False",
+        "C) TypeError",
+        "D) True"
+      ],
+      "correct_answer": "B",
+      "explanation": "Kasr sonlar ikkilik tizimda taxminiy saqlanadi: 0.1 + 0.2 = 0.30000000000000004."
+    },
+    {
+      "id": 87,
+      "topic": "Sonlar: int, float, complex",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nyolovchilar = 95\nsigim = 30\nprint((yolovchilar + sigim - 1) // sigim)\n```",
+      "code": "yolovchilar = 95\nsigim = 30\nprint((yolovchilar + sigim - 1) // sigim)",
+      "options": [
+        "A) 3",
+        "B) 5",
+        "C) 3.1",
+        "D) 4"
+      ],
+      "correct_answer": "D",
+      "explanation": "95 yoʻlovchiga 30 oʻrinli avtobuslar: (95 + 29) // 30 = 4. Bu usul butun boʻlishni yuqoriga yaxlitlaydi."
+    },
+    {
+      "id": 88,
+      "topic": "Sonlar: int, float, complex",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(divmod(125, 60))\n```",
+      "code": "print(divmod(125, 60))",
+      "options": [
+        "A) (5, 2)",
+        "B) 2 5",
+        "C) (2, 5)",
+        "D) [2, 5]"
+      ],
+      "correct_answer": "C",
+      "explanation": "`divmod(a, b)` juftlik qaytaradi: (a // b, a % b)."
+    },
+    {
+      "id": 89,
+      "topic": "Sonlar: int, float, complex",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nimport math\nprint(math.sqrt(144))\n```",
+      "code": "import math\nprint(math.sqrt(144))",
+      "options": [
+        "A) 12",
+        "B) 12.00",
+        "C) 12.0",
+        "D) 72.0"
+      ],
+      "correct_answer": "C",
+      "explanation": "`math.sqrt` doim float qaytaradi."
+    },
+    {
+      "id": 90,
+      "topic": "Sonlar: int, float, complex",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nimport math\nprint(math.ceil(4.1), math.floor(4.9))\n```",
+      "code": "import math\nprint(math.ceil(4.1), math.floor(4.9))",
+      "options": [
+        "A) 4 4",
+        "B) 5 5",
+        "C) 4 5",
+        "D) 5 4"
+      ],
+      "correct_answer": "D",
+      "explanation": "`ceil` yuqoriga, `floor` pastga yaxlitlaydi."
+    },
+    {
+      "id": 91,
+      "topic": "Sonlar: int, float, complex",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Hisobdagi qarz −12000 soʻm, uch kunlik harorat esa 18, 25 va 21 daraja. Dastur nima chiqaradi?\n\n```python\nqarz = -12000\nprint(abs(qarz), max(18, 25, 21), min(18, 25, 21))\n```",
+      "code": "qarz = -12000\nprint(abs(qarz), max(18, 25, 21), min(18, 25, 21))",
+      "options": [
+        "A) -12000 25 18",
+        "B) 12000 25 18",
+        "C) 12000 18 25",
+        "D) 12000 21 21"
+      ],
+      "correct_answer": "B",
+      "explanation": "`abs` ishorasiz qiymat, `max` eng kattasi, `min` eng kichigi."
+    },
+    {
+      "id": 92,
+      "topic": "Sonlar: int, float, complex",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\naholi = 37_000_000\nprint(aholi + 1)\n```",
+      "code": "aholi = 37_000_000\nprint(aholi + 1)",
+      "options": [
+        "A) SyntaxError xatosi",
+        "B) 37000001",
+        "C) 37000000 1",
+        "D) 37_000_001"
+      ],
+      "correct_answer": "B",
+      "explanation": "`_` faqat oʻqishni osonlashtiradi, son qiymatiga taʼsir qilmaydi va chiqarilganda koʻrinmaydi."
+    },
+    {
+      "id": 93,
+      "topic": "Sonlar: int, float, complex",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nz = 3 + 4j\nprint(z.real, z.imag, abs(z))\n```",
+      "code": "z = 3 + 4j\nprint(z.real, z.imag, abs(z))",
+      "correct_answer": "3.0 4.0 5.0",
+      "explanation": "Kompleks sonning qismlari float sifatida saqlanadi. abs(3+4j) = √(9+16) = 5.0."
+    },
+    {
+      "id": 94,
+      "topic": "Sonlar: int, float, complex",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "Qaysi ifodalar natijasi `int` turida boʻladi?",
+      "options": [
+        "A) `2 ** -1`",
+        "B) `7 % 3`",
+        "C) `7 / 1`",
+        "D) `7 // 2`"
+      ],
+      "correct_answer": [
+        "B",
+        "D"
+      ],
+      "explanation": "`/` doim float beradi (7.0). Manfiy daraja ham float beradi (0.5). `//` va `%` butun sonlarda int qaytaradi."
+    },
+    {
+      "id": 95,
+      "topic": "Sonlar: int, float, complex",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "Pythonda `/` operatori ikki butun son uchun ham har doim `float` qaytaradi.",
+      "correct_answer": "True",
+      "explanation": "Masalan `8 / 2` natijasi 4.0. Butun natija uchun `//` ishlatiladi."
+    },
+    {
+      "id": 96,
+      "topic": "Sonlar: int, float, complex",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nn = 2026\nprint(n % 10, len(str(n)), n % 2 == 0)\n```",
+      "code": "n = 2026\nprint(n % 10, len(str(n)), n % 2 == 0)",
+      "correct_answer": "6 4 True",
+      "explanation": "n % 10 — oxirgi raqam (6). `len(str(n))` — raqamlar soni (4). n % 2 == 0 — juftlik tekshiruvi (True)."
+    },
+    {
+      "id": 97,
+      "topic": "Sonlar: int, float, complex",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "12 ta olma va 18 ta nokni bolalarga teng boʻlish kerak. Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nimport math\nolma = 12\nnok = 18\nprint(math.gcd(olma, nok))\n```",
+      "code": "import math\nolma = 12\nnok = 18\nprint(math.gcd(olma, nok))",
+      "correct_answer": "6",
+      "explanation": "EKUB(12, 18) = 6. Demak 12 ta olma va 18 ta nokni ortiqcha qoldirmay eng koʻpi bilan 6 ta bolaga teng boʻlish mumkin."
+    },
+    {
+      "id": 98,
+      "topic": "Mantiqiy qiymatlar va None",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nyosh = 17\nprint(yosh >= 18)\n```",
+      "code": "yosh = 17\nprint(yosh >= 18)",
+      "correct_answer": "False",
+      "explanation": "Taqqoslash natijasi doim True yoki False."
+    },
+    {
+      "id": 99,
+      "topic": "Mantiqiy qiymatlar va None",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(True + True + False)\n```",
+      "code": "print(True + True + False)",
+      "options": [
+        "A) 3",
+        "B) 2",
+        "C) TrueTrueFalse",
+        "D) True"
+      ],
+      "correct_answer": "B",
+      "explanation": "True — 1, False — 0: 1 + 1 + 0 = 2."
+    },
+    {
+      "id": 100,
+      "topic": "Mantiqiy qiymatlar va None",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\njavoblar = [True, False, True, True]\nprint(sum(javoblar))\n```",
+      "code": "javoblar = [True, False, True, True]\nprint(sum(javoblar))",
+      "options": [
+        "A) 1",
+        "B) 3",
+        "C) True",
+        "D) 4"
+      ],
+      "correct_answer": "B",
+      "explanation": "Har bir True 1 ga teng, shuning uchun sum() toʻgʻri javoblar sonini beradi."
+    },
+    {
+      "id": 101,
+      "topic": "Mantiqiy qiymatlar va None",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi qiymatlardan qaysilari `bool()` ga berilganda `False` qaytaradi?",
+      "options": [
+        "A) []",
+        "B) \"salom\"",
+        "C) 0",
+        "D) -5"
+      ],
+      "correct_answer": [
+        "A",
+        "C"
+      ],
+      "explanation": "0, boʻsh roʻyxat, boʻsh satr va None — yolgʻon. Boʻsh boʻlmagan satr va nol boʻlmagan son — rost."
+    },
+    {
+      "id": 102,
+      "topic": "Mantiqiy qiymatlar va None",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nnatija = None\nprint(natija is None, type(natija))\n```",
+      "code": "natija = None\nprint(natija is None, type(natija))",
+      "correct_answer": "True <class 'NoneType'>",
+      "explanation": "None ning turi — NoneType."
+    },
+    {
+      "id": 103,
+      "topic": "Mantiqiy qiymatlar va None",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Oʻzgaruvchi `x` aynan `None` ekanini tekshirishning eng toʻgʻri usuli qaysi?",
+      "options": [
+        "A) x == 0",
+        "B) not x",
+        "C) x == \"\"",
+        "D) x is None"
+      ],
+      "correct_answer": "D",
+      "explanation": "`not x` 0 va boʻsh satr uchun ham True boʻladi, shuning uchun aniq emas. None `is` bilan tekshiriladi."
+    },
+    {
+      "id": 104,
+      "topic": "Mantiqiy qiymatlar va None",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(bool(None), None == 0)\n```",
+      "code": "print(bool(None), None == 0)",
+      "correct_answer": "False False",
+      "explanation": "None — “hech narsa”: bool(None) False. None 0 ga ham teng emas, shuning uchun None == 0 ham False."
+    },
+    {
+      "id": 105,
+      "topic": "Mantiqiy qiymatlar va None",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(10 == 10.0)\n```",
+      "code": "print(10 == 10.0)",
+      "options": [
+        "A) False",
+        "B) 10",
+        "C) True",
+        "D) TypeError xatosi"
+      ],
+      "correct_answer": "C",
+      "explanation": "Qiymatlar taqqoslanadi: 10 va 10.0 son jihatdan teng."
+    },
+    {
+      "id": 106,
+      "topic": "Mantiqiy qiymatlar va None",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nharorat = 25\nissiq = harorat > 30\nsovuq = harorat < 10\nprint(not issiq and not sovuq)\n```",
+      "code": "harorat = 25\nissiq = harorat > 30\nsovuq = harorat < 10\nprint(not issiq and not sovuq)",
+      "correct_answer": "True",
+      "explanation": "issiq = False, sovuq = False. not False and not False → True."
+    },
+    {
+      "id": 107,
+      "topic": "Mantiqiy qiymatlar va None",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "`True` qiymati arifmetik amalda 1 ga teng.",
+      "correct_answer": "True",
+      "explanation": "bool — int ning kichik turi: True = 1, False = 0."
+    },
+    {
+      "id": 108,
+      "topic": "Mantiqiy qiymatlar va None",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nism = \"   \"\nprint(bool(ism), bool(ism.strip()))\n```",
+      "code": "ism = \"   \"\nprint(bool(ism), bool(ism.strip()))",
+      "correct_answer": "True False",
+      "explanation": "Faqat boʻsh joylardan iborat satr boʻsh emas — True. strip() dan keyin u boʻsh satrga aylanadi — False."
+    },
+    {
+      "id": 109,
+      "topic": "Mantiqiy qiymatlar va None",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(type(3 > 2))\n```",
+      "code": "print(type(3 > 2))",
+      "correct_answer": "<class 'bool'>",
+      "explanation": "Taqqoslash natijasi bool turida."
+    },
+    {
+      "id": 110,
+      "topic": "Satrlar asoslari",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "`s = \"Python\"` boʻlsa, `s[6]` IndexError beradi, `s[-6]` esa `P` qaytaradi.",
+      "correct_answer": "True",
+      "explanation": "Indekslar 0…5 (yoki −6…−1). 6-indeks mavjud emas, −6 esa birinchi belgi."
+    },
+    {
+      "id": 111,
+      "topic": "Satrlar asoslari",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nshahar = \"Toshkent\"\nprint(len(shahar))\n```",
+      "code": "shahar = \"Toshkent\"\nprint(len(shahar))",
+      "correct_answer": "8",
+      "explanation": "`len()` belgilar sonini qaytaradi."
+    },
+    {
+      "id": 112,
+      "topic": "Satrlar asoslari",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\ns = \"PYTHON\"\nprint(s[0], s[-1])\n```",
+      "code": "s = \"PYTHON\"\nprint(s[0], s[-1])",
+      "options": [
+        "A) P Y",
+        "B) P O",
+        "C) Y N",
+        "D) P N"
+      ],
+      "correct_answer": "D",
+      "explanation": "Indeks 0 — birinchi belgi, -1 — oxirgi belgi."
+    },
+    {
+      "id": 113,
+      "topic": "Satrlar asoslari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "`s = \"KITOB\"` boʻlsa, `s[-2]` nimaga teng?\n\n```python\ns = \"KITOB\"\nprint(s[-2])\n```",
+      "code": "s = \"KITOB\"\nprint(s[-2])",
+      "options": [
+        "A) I",
+        "B) B",
+        "C) O",
+        "D) T"
+      ],
+      "correct_answer": "C",
+      "explanation": "Manfiy indeks oxiridan sanaydi: -1 — B, -2 — O."
+    },
+    {
+      "id": 114,
+      "topic": "Satrlar asoslari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nxabar = \"Bugun dars soat 15:00 da\"\nprint(\"dars\" in xabar)\n```",
+      "code": "xabar = \"Bugun dars soat 15:00 da\"\nprint(\"dars\" in xabar)",
+      "options": [
+        "A) True",
+        "B) False",
+        "C) dars",
+        "D) 1"
+      ],
+      "correct_answer": "A",
+      "explanation": "`in` matn ichida qism-satr bor-yoʻqligini tekshiradi."
+    },
+    {
+      "id": 115,
+      "topic": "Satrlar asoslari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi kod ishga tushirilsa nima boʻladi?\n\n```python\ns = \"salom\"\ns[0] = \"S\"\nprint(s)\n```",
+      "code": "s = \"salom\"\ns[0] = \"S\"\nprint(s)",
+      "options": [
+        "A) IndexError xatosi chiqadi",
+        "B) Salom",
+        "C) None",
+        "D) TypeError xatosi chiqadi"
+      ],
+      "correct_answer": "D",
+      "explanation": "Satrlar oʻzgarmas (immutable): belgini joyida almashtirib boʻlmaydi. Toʻgʻri usul: `s = \"S\" + s[1:]`."
+    },
+    {
+      "id": 116,
+      "topic": "Satrlar asoslari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi kod ishga tushirilsa nima boʻladi?\n\n```python\nkod = \"abc\"\nprint(kod[3])\n```",
+      "code": "kod = \"abc\"\nprint(kod[3])",
+      "options": [
+        "A) c",
+        "B) IndexError xatosi chiqadi",
+        "C) Boʻsh qator chiqadi",
+        "D) None"
+      ],
+      "correct_answer": "B",
+      "explanation": "Uzunligi 3 boʻlgan satrning indekslari 0, 1, 2. 3-indeks mavjud emas."
+    },
+    {
+      "id": 117,
+      "topic": "Satrlar asoslari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nsoz = \"OLMA\"\nprint(soz[0], soz[1], soz[-1], sep=\"-\")\n```",
+      "code": "soz = \"OLMA\"\nprint(soz[0], soz[1], soz[-1], sep=\"-\")",
+      "correct_answer": "O-L-A",
+      "explanation": "soz[0] — O, soz[1] — L, soz[-1] — oxirgi harf A. sep=\"-\" ularni chiziqcha bilan ulaydi."
+    },
+    {
+      "id": 118,
+      "topic": "Satrlar asoslari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nmatn = \"assalomu alaykum\"\nprint(len(matn), \"lay\" in matn, \"Lay\" in matn)\n```",
+      "code": "matn = \"assalomu alaykum\"\nprint(len(matn), \"lay\" in matn, \"Lay\" in matn)",
+      "correct_answer": "16 True False",
+      "explanation": "Boʻsh joy bilan 16 ta belgi. `in` katta-kichik harfni farqlaydi: \"lay\" bor, \"Lay\" yoʻq."
+    },
+    {
+      "id": 119,
+      "topic": "Satrlar asoslari",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "`s = \"Mirae\"` boʻlsa, oxirgi belgining indeksi `len(s)` ga teng.",
+      "correct_answer": "False",
+      "explanation": "Indeks 0 dan boshlanadi, shuning uchun oxirgi indeks `len(s) - 1` = 4."
+    },
+    {
+      "id": 120,
+      "topic": "Satrlar asoslari",
+      "type": "fill_blank",
+      "difficulty": "medium",
+      "question": "`d` harfini **manfiy indeks** bilan chiqarish uchun boʻsh joyga nima yoziladi?\n\n```python\nsoz = \"Samarqand\"\nprint(soz[____])\n```",
+      "code": "soz = \"Samarqand\"\nprint(soz[____])",
+      "correct_answer": "-1",
+      "explanation": "Oxirgi belgi manfiy indeksda -1."
+    },
+    {
+      "id": 121,
+      "topic": "Satrlar asoslari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\ns = \"salom\"\nprint(s[1] + s[3])\n```",
+      "code": "s = \"salom\"\nprint(s[1] + s[3])",
+      "options": [
+        "A) al",
+        "B) ao",
+        "C) lm",
+        "D) so"
+      ],
+      "correct_answer": "B",
+      "explanation": "s[1] = a, s[3] = o."
+    },
+    {
+      "id": 122,
+      "topic": "Satrlar asoslari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\ns = \"toshkent\"\ns = s[0].upper() + s[1:]\nprint(s)\n```",
+      "code": "s = \"toshkent\"\ns = s[0].upper() + s[1:]\nprint(s)",
+      "correct_answer": "Toshkent",
+      "explanation": "Satrni oʻzgartirib boʻlmaydi, lekin yangi satr yasab, oʻzgaruvchiga qayta yozish mumkin."
+    },
+    {
+      "id": 123,
+      "topic": "Satrlar asoslari",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nmanzil = \"\"\"Toshkent shahri,\nChilonzor tumani\"\"\"\nprint(manzil)\n```",
+      "code": "manzil = \"\"\"Toshkent shahri,\nChilonzor tumani\"\"\"\nprint(manzil)",
+      "correct_answer": "Toshkent shahri,\nChilonzor tumani",
+      "explanation": "Uchta qoʻshtirnoq ichidagi satr bir necha qatordan iborat boʻlishi mumkin, qator koʻchishlari saqlanadi."
+    },
+    {
+      "id": 124,
+      "topic": "Kesish (slicing)",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nkod = \"UZ-2026-AB-77\"\nprint(kod[3:7], kod[-5:-3], kod[:2].lower())\n```",
+      "code": "kod = \"UZ-2026-AB-77\"\nprint(kod[3:7], kod[-5:-3], kod[:2].lower())",
+      "correct_answer": "2026 AB uz",
+      "explanation": "[3:7] — 3…6-indekslar (2026); [-5:-3] — oxiridan 5- va 4-belgilar (AB); [:2] — UZ, kichik harfda uz."
+    },
+    {
+      "id": 125,
+      "topic": "Kesish (slicing)",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\ns = \"Python\"\nprint(s[1:4])\n```",
+      "code": "s = \"Python\"\nprint(s[1:4])",
+      "options": [
+        "A) Pyt",
+        "B) Pyth",
+        "C) ytho",
+        "D) yth"
+      ],
+      "correct_answer": "D",
+      "explanation": "Boshi (1) kiradi, oxiri (4) kirmaydi: indekslar 1, 2, 3."
+    },
+    {
+      "id": 126,
+      "topic": "Kesish (slicing)",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"salom\"[::-1])\n```",
+      "code": "print(\"salom\"[::-1])",
+      "options": [
+        "A) olas",
+        "B) salom",
+        "C) mola",
+        "D) molas"
+      ],
+      "correct_answer": "D",
+      "explanation": "Qadam -1 satrni teskari oʻqiydi."
+    },
+    {
+      "id": 127,
+      "topic": "Kesish (slicing)",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nfayl = \"hisobot.pdf\"\nprint(fayl[-3:])\n```",
+      "code": "fayl = \"hisobot.pdf\"\nprint(fayl[-3:])",
+      "options": [
+        "A) df",
+        "B) hisobot",
+        "C) .pdf",
+        "D) pdf"
+      ],
+      "correct_answer": "D",
+      "explanation": "Oxirgi 3 ta belgi."
+    },
+    {
+      "id": 128,
+      "topic": "Kesish (slicing)",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nfayl = \"hisobot.pdf\"\nprint(fayl[:-4])\n```",
+      "code": "fayl = \"hisobot.pdf\"\nprint(fayl[:-4])",
+      "options": [
+        "A) hisobot.",
+        "B) hisobot",
+        "C) hisobo",
+        "D) .pdf"
+      ],
+      "correct_answer": "B",
+      "explanation": "Oxirgi 4 ta belgidan (`.pdf`) tashqari hammasi."
+    },
+    {
+      "id": 129,
+      "topic": "Kesish (slicing)",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "`s = \"TOSHKENT\"` dan `TOSH` ni qaysi ifoda oladi?",
+      "options": [
+        "A) s[4:]",
+        "B) s[:4]",
+        "C) s[1:5]",
+        "D) s[0:3]"
+      ],
+      "correct_answer": "B",
+      "explanation": "`s[:4]` — 0, 1, 2, 3-indekslar. `s[0:3]` faqat TOS beradi."
+    },
+    {
+      "id": 130,
+      "topic": "Kesish (slicing)",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"0123456789\"[::3])\n```",
+      "code": "print(\"0123456789\"[::3])",
+      "options": [
+        "A) 036",
+        "B) 369",
+        "C) 0369",
+        "D) 0123"
+      ],
+      "correct_answer": "C",
+      "explanation": "Har 3-belgi: 0, 3, 6, 9."
+    },
+    {
+      "id": 131,
+      "topic": "Kesish (slicing)",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"abcdef\"[4:1])\n```",
+      "code": "print(\"abcdef\"[4:1])",
+      "options": [
+        "A) edc",
+        "B) dcb",
+        "C) Boʻsh qator chiqadi (natija — boʻsh satr)",
+        "D) IndexError xatosi chiqadi"
+      ],
+      "correct_answer": "C",
+      "explanation": "Qadam musbat (+1), lekin boshi (4) oxiridan (1) katta, shuning uchun hech qanday belgi olinmaydi."
+    },
+    {
+      "id": 132,
+      "topic": "Kesish (slicing)",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Soʻz palindrom (teskarisiga ham bir xil oʻqiladi) ekanini qaysi ifoda tekshiradi?",
+      "options": [
+        "A) s == s[::-1]",
+        "B) s[0] == s[1]",
+        "C) s == s[-1]",
+        "D) s == s[::2]"
+      ],
+      "correct_answer": "A",
+      "explanation": "`s[::-1]` — teskari satr. Ular teng boʻlsa, soʻz palindrom."
+    },
+    {
+      "id": 133,
+      "topic": "Kesish (slicing)",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Ombor kodi harf va raqamlardan iborat. Dastur nima chiqaradi?\n\n```python\nkod = \"A1B2C3D4\"\nprint(kod[::2], kod[1::2])\n```",
+      "code": "kod = \"A1B2C3D4\"\nprint(kod[::2], kod[1::2])",
+      "options": [
+        "A) ABCD 1234",
+        "B) 1234 ABCD",
+        "C) A1B2 C3D4",
+        "D) ABCD ABCD"
+      ],
+      "correct_answer": "A",
+      "explanation": "`[::2]` — 0, 2, 4, 6-indekslar (harflar); `[1::2]` — 1, 3, 5, 7-indekslar (raqamlar)."
+    },
+    {
+      "id": 134,
+      "topic": "Kesish (slicing)",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\ntel = \"+998901234567\"\nprint(tel[:6] + \"*****\" + tel[-2:])\n```",
+      "code": "tel = \"+998901234567\"\nprint(tel[:6] + \"*****\" + tel[-2:])",
+      "correct_answer": "+99890*****67",
+      "explanation": "Dastlabki 6 ta belgi, 5 ta yulduzcha va oxirgi 2 ta raqam."
+    },
+    {
+      "id": 135,
+      "topic": "Kesish (slicing)",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nsana = \"2026-10-31\"\nprint(sana[8:] + \".\" + sana[5:7] + \".\" + sana[:4])\n```",
+      "code": "sana = \"2026-10-31\"\nprint(sana[8:] + \".\" + sana[5:7] + \".\" + sana[:4])",
+      "correct_answer": "31.10.2026",
+      "explanation": "Kun — [8:], oy — [5:7], yil — [:4]."
+    },
+    {
+      "id": 136,
+      "topic": "Kesish (slicing)",
+      "type": "fill_blank",
+      "difficulty": "medium",
+      "question": "Karta raqamining oxirgi 4 ta raqamini (`9012`) chiqarish uchun boʻsh joyga **manfiy** boshlanish indeksini yozing.\n\n```python\nkarta = \"8600123456789012\"\nprint(karta[____:])\n```",
+      "code": "karta = \"8600123456789012\"\nprint(karta[____:])",
+      "correct_answer": "-4",
+      "explanation": "`s[-4:]` — oxirgi 4 ta belgi."
+    },
+    {
+      "id": 137,
+      "topic": "Kesish (slicing)",
+      "type": "multiple_choice",
+      "difficulty": "hard",
+      "question": "`s = \"Python\"` boʻlsa, qaysi ifodalar `Py` ni qaytaradi?",
+      "options": [
+        "A) s[0:2]",
+        "B) s[:2]",
+        "C) s[-6:-4]",
+        "D) s[1:3]"
+      ],
+      "correct_answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "-6 — P, -4 — t (kirmaydi), shuning uchun s[-6:-4] ham Py. s[1:3] esa yt."
+    },
+    {
+      "id": 138,
+      "topic": "Kesish (slicing)",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\ns = \"Python\"\nprint(s[::-2])\n```",
+      "code": "s = \"Python\"\nprint(s[::-2])",
+      "options": [
+        "A) nohtyP",
+        "B) Pto",
+        "C) nhy",
+        "D) ntP"
+      ],
+      "correct_answer": "C",
+      "explanation": "Oxiridan boshlab har 2-belgi: n (5), h (3), y (1)."
+    },
+    {
+      "id": 139,
+      "topic": "Kesish (slicing)",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "`s[2:50]` kesishida 50 satr uzunligidan katta boʻlsa ham, IndexError chiqmaydi.",
+      "correct_answer": "True",
+      "explanation": "Kesish chegaralarni avtomatik moslaydi, faqat bitta indeks (`s[50]`) xato beradi."
+    },
+    {
+      "id": 140,
+      "topic": "Satr metodlari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nemail = \"Ali.Valiyev@Mail.UZ\"\nprint(email.lower().replace(\".uz\", \".com\"))\n```",
+      "code": "email = \"Ali.Valiyev@Mail.UZ\"\nprint(email.lower().replace(\".uz\", \".com\"))",
+      "correct_answer": "ali.valiyev@mail.com",
+      "explanation": "Avval hammasi kichik harfga oʻtadi, keyin `.uz` qismi `.com` ga almashtiriladi."
+    },
+    {
+      "id": 141,
+      "topic": "Satr metodlari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\na, b, c = \"bir,ikki,uch\".split(\",\")\nprint(b.upper(), len(c))\n```",
+      "code": "a, b, c = \"bir,ikki,uch\".split(\",\")\nprint(b.upper(), len(c))",
+      "options": [
+        "A) IKKI 3",
+        "B) ikki 3",
+        "C) IKKI 4",
+        "D) BIR 3"
+      ],
+      "correct_answer": "A",
+      "explanation": "split(\",\") uchta boʻlak beradi va ular a, b, c ga taqsimlanadi: b = \"ikki\" → IKKI, c = \"uch\" → uzunligi 3."
+    },
+    {
+      "id": 142,
+      "topic": "Satr metodlari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\ns = \"  salom  \"\nprint(\"[\" + s.lstrip() + \"]\", \"[\" + s.rstrip() + \"]\")\n```",
+      "code": "s = \"  salom  \"\nprint(\"[\" + s.lstrip() + \"]\", \"[\" + s.rstrip() + \"]\")",
+      "correct_answer": "[salom  ] [  salom]",
+      "explanation": "`lstrip()` faqat chapdagi, `rstrip()` faqat oʻngdagi boʻsh joylarni olib tashlaydi."
+    },
+    {
+      "id": 143,
+      "topic": "Satr metodlari",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"toshkent shahri\".title())\n```",
+      "code": "print(\"toshkent shahri\".title())",
+      "correct_answer": "Toshkent Shahri",
+      "explanation": "`title()` har bir soʻzning birinchi harfini katta qiladi."
+    },
+    {
+      "id": 144,
+      "topic": "Satr metodlari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\ns = \"salom\"\ns.upper()\nprint(s)\n```",
+      "code": "s = \"salom\"\ns.upper()\nprint(s)",
+      "correct_answer": "salom",
+      "explanation": "Metod yangi satr qaytaradi, lekin natija hech qayerga saqlanmadi. `s` oʻzgarmagan."
+    },
+    {
+      "id": 145,
+      "topic": "Satr metodlari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nism = \"   Ali   \"\nprint(\"[\" + ism.strip() + \"]\")\n```",
+      "code": "ism = \"   Ali   \"\nprint(\"[\" + ism.strip() + \"]\")",
+      "options": [
+        "A) [   Ali   ]",
+        "B) [Ali]",
+        "C) [Ali   ]",
+        "D) [   Ali]"
+      ],
+      "correct_answer": "B",
+      "explanation": "`strip()` ikki chetdagi boʻsh joylarni olib tashlaydi."
+    },
+    {
+      "id": 146,
+      "topic": "Satr metodlari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"banan\".count(\"an\"))\n```",
+      "code": "print(\"banan\".count(\"an\"))",
+      "correct_answer": "2",
+      "explanation": "`an` qism-satri b-AN-AN da 2 marta uchraydi."
+    },
+    {
+      "id": 147,
+      "topic": "Satr metodlari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"salom\".find(\"x\"), \"salom\".find(\"l\"))\n```",
+      "code": "print(\"salom\".find(\"x\"), \"salom\".find(\"l\"))",
+      "options": [
+        "A) 0 3",
+        "B) -1 2",
+        "C) None 2",
+        "D) -1 3"
+      ],
+      "correct_answer": "B",
+      "explanation": "Topilmasa -1, topilsa birinchi uchragan indeks (l — 2-indeks)."
+    },
+    {
+      "id": 148,
+      "topic": "Satr metodlari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nnarxlar = \"12,45,7\"\nprint(narxlar.split(\",\"))\n```",
+      "code": "narxlar = \"12,45,7\"\nprint(narxlar.split(\",\"))",
+      "correct_answer": "['12', '45', '7']",
+      "explanation": "split() roʻyxat qaytaradi, elementlari — satrlar."
+    },
+    {
+      "id": 149,
+      "topic": "Satr metodlari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"-\".join([\"2026\", \"10\", \"31\"]))\n```",
+      "code": "print(\"-\".join([\"2026\", \"10\", \"31\"]))",
+      "options": [
+        "A) 2026-10-31",
+        "B) 2026 10 31",
+        "C) -2026-10-31-",
+        "D) 20261031"
+      ],
+      "correct_answer": "A",
+      "explanation": "join() roʻyxat elementlarini berilgan ajratuvchi bilan ulaydi."
+    },
+    {
+      "id": 150,
+      "topic": "Satr metodlari",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "`\"a b c\".split()` nima qaytaradi?\n\n```python\nprint(\"a b c\".split())\n```",
+      "code": "print(\"a b c\".split())",
+      "options": [
+        "A) abc",
+        "B) ['a', 'b', 'c']",
+        "C) ('a', 'b', 'c')",
+        "D) ['a b c']"
+      ],
+      "correct_answer": "B",
+      "explanation": "Argumentsiz split() boʻsh joylardan boʻlib, roʻyxat qaytaradi."
+    },
+    {
+      "id": 151,
+      "topic": "Satr metodlari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nxabar = \"Dars soat 14:00 da\"\nprint(xabar.replace(\"14:00\", \"15:30\"))\n```",
+      "code": "xabar = \"Dars soat 14:00 da\"\nprint(xabar.replace(\"14:00\", \"15:30\"))",
+      "correct_answer": "Dars soat 15:30 da",
+      "explanation": "replace() eski qism-satrni yangisiga almashtiradi."
+    },
+    {
+      "id": 152,
+      "topic": "Satr metodlari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"2026\".isdigit(), \"20a6\".isdigit())\n```",
+      "code": "print(\"2026\".isdigit(), \"20a6\".isdigit())",
+      "options": [
+        "A) True False",
+        "B) True True",
+        "C) False False",
+        "D) False True"
+      ],
+      "correct_answer": "A",
+      "explanation": "isdigit() — barcha belgilar raqam boʻlsagina True."
+    },
+    {
+      "id": 153,
+      "topic": "Satr metodlari",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nemail = \"  Admin@Mirae.UZ \"\nemail = email.strip().lower()\nprint(email, email.endswith(\".uz\"))\n```",
+      "code": "email = \"  Admin@Mirae.UZ \"\nemail = email.strip().lower()\nprint(email, email.endswith(\".uz\"))",
+      "correct_answer": "admin@mirae.uz True",
+      "explanation": "Metodlar zanjir qilib chaqiriladi: avval boʻsh joylar tozalanadi, keyin kichik harfga oʻtkaziladi."
+    },
+    {
+      "id": 154,
+      "topic": "Satr metodlari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"salom\".isalpha(), \"salom!\".isalpha(), \"ABC\".isupper(), \"abc\".islower())\n```",
+      "code": "print(\"salom\".isalpha(), \"salom!\".isalpha(), \"ABC\".isupper(), \"abc\".islower())",
+      "options": [
+        "A) True False True True",
+        "B) True True True True",
+        "C) False False True False",
+        "D) True False False True"
+      ],
+      "correct_answer": "A",
+      "explanation": "`isalpha()` — faqat harflar boʻlsa True (`!` harf emas). `isupper()` / `islower()` — barcha harflar katta / kichik boʻlsa True."
+    },
+    {
+      "id": 155,
+      "topic": "Satr metodlari",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\ngap = \"men python oʻrganaman\"\nprint(\" \".join(gap.split()[::-1]))\n```",
+      "code": "gap = \"men python oʻrganaman\"\nprint(\" \".join(gap.split()[::-1]))",
+      "correct_answer": "oʻrganaman python men",
+      "explanation": "Soʻzlar roʻyxati teskari aylantiriladi va boʻsh joy bilan qayta ulanadi."
+    },
+    {
+      "id": 156,
+      "topic": "Satr metodlari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "`find()` metodi qidirilgan qism-satrni topa olmasa nima qaytaradi?",
+      "options": [
+        "A) ValueError xatosi chiqadi",
+        "B) 0",
+        "C) -1",
+        "D) None"
+      ],
+      "correct_answer": "C",
+      "explanation": "find() topilmaganda -1 qaytaradi. (index() metodi esa xato beradi.)"
+    },
+    {
+      "id": 157,
+      "topic": "Satr metodlari",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "Qaysi satr metodlari `True` yoki `False` qaytaradi?",
+      "options": [
+        "A) startswith()",
+        "B) upper()",
+        "C) isdigit()",
+        "D) replace()"
+      ],
+      "correct_answer": [
+        "A",
+        "C"
+      ],
+      "explanation": "is... va startswith/endswith metodlari bool qaytaradi; upper va replace yangi satr qaytaradi."
+    },
+    {
+      "id": 158,
+      "topic": "Satr metodlari",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"python\".capitalize(), \"PyThOn\".swapcase())\n```",
+      "code": "print(\"python\".capitalize(), \"PyThOn\".swapcase())",
+      "options": [
+        "A) Python pYtHoN",
+        "B) PYTHON pYtHoN",
+        "C) Python PYTHON",
+        "D) Python PyThOn"
+      ],
+      "correct_answer": "A",
+      "explanation": "capitalize() faqat birinchi harfni katta qiladi; swapcase() har bir harfning registrini almashtiradi."
+    },
+    {
+      "id": 159,
+      "topic": "Satr metodlari",
+      "type": "fill_blank",
+      "difficulty": "medium",
+      "question": "Natija `Sardor` boʻlishi uchun boʻsh joyga qaysi metod nomi yoziladi?\n\n```python\nism = \"  sardor  \".____().title()\nprint(ism)\n```",
+      "code": "ism = \"  sardor  \".____().title()\nprint(ism)",
+      "correct_answer": "strip",
+      "explanation": "strip() chetdagi boʻsh joylarni olib tashlaydi, title() bosh harfni katta qiladi."
+    },
+    {
+      "id": 160,
+      "topic": "Satr metodlari",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\ni, f = \"ali valiyev\".split()\nprint(i[0].upper() + \".\" + f[0].upper() + \".\")\n```",
+      "code": "i, f = \"ali valiyev\".split()\nprint(i[0].upper() + \".\" + f[0].upper() + \".\")",
+      "correct_answer": "A.V.",
+      "explanation": "Ism va familiyaning birinchi harflari katta qilinib, nuqta bilan ulanadi."
+    },
+    {
+      "id": 161,
+      "topic": "Satr metodlari",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "`s.replace(\"a\", \"o\")` chaqirilganda `s` satrining oʻzi oʻzgaradi.",
+      "correct_answer": "False",
+      "explanation": "Satrlar oʻzgarmas. replace() yangi satr qaytaradi, uni saqlash kerak: `s = s.replace(\"a\", \"o\")`."
+    },
+    {
+      "id": 162,
+      "topic": "Satr metodlari",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nqator = \"olma,nok,,uzum\"\nprint(qator.split(\",\"))\n```",
+      "code": "qator = \"olma,nok,,uzum\"\nprint(qator.split(\",\"))",
+      "correct_answer": "['olma', 'nok', '', 'uzum']",
+      "explanation": "Ikki vergul orasida hech narsa yoʻq, shuning uchun roʻyxatda boʻsh satr paydo boʻladi."
+    },
+    {
+      "id": 163,
+      "topic": "Satr metodlari",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"banan va ananas\".startswith(\"ban\"), \"fayl.txt\".endswith(\".pdf\"))\n```",
+      "code": "print(\"banan va ananas\".startswith(\"ban\"), \"fayl.txt\".endswith(\".pdf\"))",
+      "correct_answer": "True False",
+      "explanation": "Satr `ban` bilan boshlanadi, lekin fayl nomi `.pdf` bilan tugamaydi."
+    },
+    {
+      "id": 164,
+      "topic": "Satrlarni birlashtirish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nism = \"ali\"\nprint(ism.title() + \"!\" * 3 + \" \" + str(17 + 1))\n```",
+      "code": "ism = \"ali\"\nprint(ism.title() + \"!\" * 3 + \" \" + str(17 + 1))",
+      "options": [
+        "A) Ali!3 18",
+        "B) Ali!!! 171",
+        "C) Ali!!! 18",
+        "D) ali!!! 18"
+      ],
+      "correct_answer": "C",
+      "explanation": "`*` avval bajariladi: \"!!!\". 17 + 1 = 18 son, str() bilan satrga aylanadi."
+    },
+    {
+      "id": 165,
+      "topic": "Satrlarni birlashtirish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Juda koʻp boʻlakdan (masalan 10 000 ta soʻzdan) bitta satr yigʻishning eng samarali usuli qaysi?",
+      "options": [
+        "A) Har birini `+` bilan qoʻshib borish",
+        "B) Boʻlaklarni roʻyxatga yigʻib, `\"\".join(roʻyxat)` qilish",
+        "C) `str(roʻyxat)` dan foydalanish",
+        "D) Roʻyxatni `* 1` ga koʻpaytirish"
+      ],
+      "correct_answer": "B",
+      "explanation": "`+` har safar yangi satr yaratadi va koʻp boʻlakda sekinlashadi. `join()` hammasini bir marta ulaydi."
+    },
+    {
+      "id": 166,
+      "topic": "Satrlarni birlashtirish",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"ha\" * 3)\n```",
+      "code": "print(\"ha\" * 3)",
+      "correct_answer": "hahaha",
+      "explanation": "`*` satrni takrorlaydi."
+    },
+    {
+      "id": 167,
+      "topic": "Satrlarni birlashtirish",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"=\" * 5 + \" MENYU \" + \"=\" * 5)\n```",
+      "code": "print(\"=\" * 5 + \" MENYU \" + \"=\" * 5)",
+      "correct_answer": "===== MENYU =====",
+      "explanation": "Avval takrorlash, keyin ulash bajariladi."
+    },
+    {
+      "id": 168,
+      "topic": "Satrlarni birlashtirish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Qaysi ifoda xato (TypeError) beradi?",
+      "options": [
+        "A) \"Ball: \" * 2",
+        "B) \"Ball: \" + \"90\"",
+        "C) \"Ball: \" + str(90)",
+        "D) \"Ball: \" + 90"
+      ],
+      "correct_answer": "D",
+      "explanation": "Satrga son `+` bilan qoʻshilmaydi. Satrni songa koʻpaytirish esa mumkin."
+    },
+    {
+      "id": 169,
+      "topic": "Satrlarni birlashtirish",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nnatija = \"\"\nnatija += \"Py\"\nnatija += \"thon\"\nprint(natija)\n```",
+      "code": "natija = \"\"\nnatija += \"Py\"\nnatija += \"thon\"\nprint(natija)",
+      "correct_answer": "Python",
+      "explanation": "`+=` satr oxiriga yangi qism qoʻshib boradi."
+    },
+    {
+      "id": 170,
+      "topic": "Satrlarni birlashtirish",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"5\" + \"5\" * 2)\n```",
+      "code": "print(\"5\" + \"5\" * 2)",
+      "options": [
+        "A) 5555",
+        "B) 10",
+        "C) 555",
+        "D) 15"
+      ],
+      "correct_answer": "C",
+      "explanation": "`*` birinchi bajariladi: \"55\", keyin \"5\" + \"55\" = \"555\"."
+    },
+    {
+      "id": 171,
+      "topic": "Satrlarni birlashtirish",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\".\" * 2 + \"*\")\nprint(\".\" + \"*\" * 3)\nprint(\"*\" * 5)\n```",
+      "code": "print(\".\" * 2 + \"*\")\nprint(\".\" + \"*\" * 3)\nprint(\"*\" * 5)",
+      "correct_answer": "..*\n.***\n*****",
+      "explanation": "Har qatorda `*` takrorlash va `+` ulash: 2 nuqta + 1 yulduz, 1 nuqta + 3 yulduz, 5 yulduz."
+    },
+    {
+      "id": 172,
+      "topic": "Satrlarni birlashtirish",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "`\"ab\" * 0` natijasi boʻsh satr boʻladi.",
+      "correct_answer": "True",
+      "explanation": "Satrni 0 marta takrorlash boʻsh satr beradi."
+    },
+    {
+      "id": 173,
+      "topic": "Satrlarni birlashtirish",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"+\".join(\"12345\"))\n```",
+      "code": "print(\"+\".join(\"12345\"))",
+      "correct_answer": "1+2+3+4+5",
+      "explanation": "Satr ham belgilar ketma-ketligi: har bir raqam orasiga `+` qoʻyiladi."
+    },
+    {
+      "id": 174,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nnarx = 1250000\nchegirma = 0.15\nprint(f\"Chegirma: {narx * chegirma:,.0f} soʻm\")\n```",
+      "code": "narx = 1250000\nchegirma = 0.15\nprint(f\"Chegirma: {narx * chegirma:,.0f} soʻm\")",
+      "correct_answer": "Chegirma: 187,500 soʻm",
+      "explanation": "1250000 × 0.15 = 187500.0. `:,.0f` — minglik vergul va kasr qismisiz: 187,500."
+    },
+    {
+      "id": 175,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(f\"{'Ism':<8}|{'Ball':>6}|\")\nprint(f\"{'Ali':<8}|{95:>6}|\")\n```",
+      "code": "print(f\"{'Ism':<8}|{'Ball':>6}|\")\nprint(f\"{'Ali':<8}|{95:>6}|\")",
+      "correct_answer": "Ism     |  Ball|\nAli     |    95|",
+      "explanation": "`:<8` — 8 belgi kenglikda chapga, `:>6` — 6 belgi kenglikda oʻngga. Jadval ustunlari bir chiziqda turadi."
+    },
+    {
+      "id": 176,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nism = \"Bekzod\"\nyosh = 19\nprint(f\"{ism} {yosh} yoshda\")\n```",
+      "code": "ism = \"Bekzod\"\nyosh = 19\nprint(f\"{ism} {yosh} yoshda\")",
+      "correct_answer": "Bekzod 19 yoshda",
+      "explanation": "`{ }` ichidagi oʻzgaruvchilar qiymati bilan almashtiriladi."
+    },
+    {
+      "id": 177,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(f\"[{'MENYU':^11}]\")\n```",
+      "code": "print(f\"[{'MENYU':^11}]\")",
+      "correct_answer": "[   MENYU   ]",
+      "explanation": "`:^11` — 11 belgi kenglikda markazga: 5 harfning ikki tomonida 3 tadan boʻsh joy."
+    },
+    {
+      "id": 178,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(f\"{2.71828:.0f}\", f\"{2/3:.3f}\")\n```",
+      "code": "print(f\"{2.71828:.0f}\", f\"{2/3:.3f}\")",
+      "options": [
+        "A) 2 0.667",
+        "B) 2.7 0.67",
+        "C) 3 0.666",
+        "D) 3 0.667"
+      ],
+      "correct_answer": "D",
+      "explanation": "`.0f` butun songacha yaxlitlaydi (2.71828 → 3), `.3f` 3 xonagacha (0.6666… → 0.667)."
+    },
+    {
+      "id": 179,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nsumma = 12500000\nprint(f\"{summa:,}\")\n```",
+      "code": "summa = 12500000\nprint(f\"{summa:,}\")",
+      "correct_answer": "12,500,000",
+      "explanation": "`:,` — minglik ajratuvchi vergul."
+    },
+    {
+      "id": 180,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nsumma = 12500000\nprint(f\"{summa:,}\".replace(\",\", \" \"))\n```",
+      "code": "summa = 12500000\nprint(f\"{summa:,}\".replace(\",\", \" \"))",
+      "correct_answer": "12 500 000",
+      "explanation": "Avval vergul bilan formatlanadi, keyin vergullar boʻsh joyga almashtiriladi."
+    },
+    {
+      "id": 181,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(f\"{0.875:.1%}\")\n```",
+      "code": "print(f\"{0.875:.1%}\")",
+      "options": [
+        "A) 0.9%",
+        "B) 8.75%",
+        "C) 87.5%",
+        "D) 87%"
+      ],
+      "correct_answer": "C",
+      "explanation": "`%` formati sonni 100 ga koʻpaytirib, foiz belgisini qoʻshadi."
+    },
+    {
+      "id": 182,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(f\"[{7:03d}]\")\n```",
+      "code": "print(f\"[{7:03d}]\")",
+      "options": [
+        "A) [700]",
+        "B) [  7]",
+        "C) [7]",
+        "D) [007]"
+      ],
+      "correct_answer": "D",
+      "explanation": "`03d` — 3 xonali, boʻsh oʻrinlar nol bilan toʻldiriladi."
+    },
+    {
+      "id": 183,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Qaysi format qiymatni 8 belgi kenglikda **oʻngga** tekislaydi?",
+      "options": [
+        "A) {x:.8}",
+        "B) {x:^8}",
+        "C) {x:<8}",
+        "D) {x:>8}"
+      ],
+      "correct_answer": "D",
+      "explanation": "`>` — oʻngga, `<` — chapga, `^` — markazga. `.8` esa aniqlik (kenglik emas)."
+    },
+    {
+      "id": 184,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nx = 42\nprint(f\"{x=}\")\n```",
+      "code": "x = 42\nprint(f\"{x=}\")",
+      "options": [
+        "A) 42",
+        "B) x",
+        "C) {x=}",
+        "D) x=42"
+      ],
+      "correct_answer": "D",
+      "explanation": "`{x=}` oʻzgaruvchi nomi va qiymatini birga chiqaradi (debug uchun)."
+    },
+    {
+      "id": 185,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\na, b = 2, 3\nprint(f\"{a} + {b} = {a + b}\")\n```",
+      "code": "a, b = 2, 3\nprint(f\"{a} + {b} = {a + b}\")",
+      "correct_answer": "2 + 3 = 5",
+      "explanation": "Faqat `{ }` ichidagi qismlar hisoblanadi."
+    },
+    {
+      "id": 186,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "fill_blank",
+      "difficulty": "medium",
+      "question": "Natija `4.67` boʻlishi uchun boʻsh joyga qaysi format yoziladi?\n\n```python\nortacha = 4.6667\nprint(f\"{ortacha:____}\")\n```",
+      "code": "ortacha = 4.6667\nprint(f\"{ortacha:____}\")",
+      "correct_answer": ".2f",
+      "explanation": "`.2f` — 2 xonagacha yaxlitlangan kasr son."
+    },
+    {
+      "id": 187,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(f\"[{'Non':<6}][{4000:>6}]\")\n```",
+      "code": "print(f\"[{'Non':<6}][{4000:>6}]\")",
+      "correct_answer": "[Non   ][  4000]",
+      "explanation": "`Non` 6 belgi kenglikda chapga (oʻngida 3 ta boʻsh joy), 4000 esa oʻngga tekislanadi (chapida 2 ta boʻsh joy)."
+    },
+    {
+      "id": 188,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "f-satrda `{ }` ichiga faqat oʻzgaruvchi nomi yoziladi, ifoda (masalan `{narx * 2}`) yozib boʻlmaydi.",
+      "correct_answer": "False",
+      "explanation": "`{ }` ichida istalgan ifoda yozish mumkin: hisoblash, metod chaqirish va hokazo."
+    },
+    {
+      "id": 189,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "single_choice",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nism = \"ali\"\nprint(f\"Salom, {ism.title()}!\")\n```",
+      "code": "ism = \"ali\"\nprint(f\"Salom, {ism.title()}!\")",
+      "options": [
+        "A) Salom, Ali!",
+        "B) Salom, {ism.title()}!",
+        "C) Salom, ALI!",
+        "D) Salom, ali!"
+      ],
+      "correct_answer": "A",
+      "explanation": "`{ }` ichida metod ham chaqirish mumkin."
+    },
+    {
+      "id": 190,
+      "topic": "f-satrlar (formatlangan satrlar)",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(f\"{2/3:.2f}\")\n```",
+      "code": "print(f\"{2/3:.2f}\")",
+      "options": [
+        "A) 0.666",
+        "B) 0.67",
+        "C) 0.6",
+        "D) 0.66"
+      ],
+      "correct_answer": "B",
+      "explanation": "2/3 = 0.6666…; `.2f` 2 xonagacha yaxlitlaydi (kesib tashlamaydi): 0.67."
+    },
+    {
+      "id": 191,
+      "topic": "Maxsus belgilar (escape)",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint('Doʻkon nomi: \"Baraka\"')\nprint('Rock\\'n\\'roll kafesi')\n```",
+      "code": "print('Doʻkon nomi: \"Baraka\"')\nprint('Rock\\'n\\'roll kafesi')",
+      "correct_answer": "Doʻkon nomi: \"Baraka\"\nRock'n'roll kafesi",
+      "explanation": "Tashqi tirnoq bittalik boʻlsa, ichida qoʻsh tirnoqni bemalol yozish mumkin. Bittalik tirnoq ichida bittalik tirnoq esa `\\'` bilan yoziladi."
+    },
+    {
+      "id": 192,
+      "topic": "Maxsus belgilar (escape)",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"C:\\new\")\n```",
+      "code": "print(\"C:\\new\")",
+      "options": [
+        "A) C:\\new",
+        "B) C:new",
+        "C) `C:` chiqadi, keyingi qatorda `ew`",
+        "D) SyntaxError xatosi chiqadi"
+      ],
+      "correct_answer": "C",
+      "explanation": "Oddiy satrda `\\n` yangi qator belgisiga aylanadi. Fayl yoʻllari uchun `\\\\` yoki `r\"C:\\new\"` ishlatiladi."
+    },
+    {
+      "id": 193,
+      "topic": "Maxsus belgilar (escape)",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"Natija: \\u2714 bajarildi\")\n```",
+      "code": "print(\"Natija: \\u2714 bajarildi\")",
+      "correct_answer": "Natija: ✔ bajarildi",
+      "explanation": "`\\u2714` — Unicode belgining kodi; ekranda ✔ belgisi chiqadi."
+    },
+    {
+      "id": 194,
+      "topic": "Maxsus belgilar (escape)",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"Birinchi\\nIkkinchi\")\n```",
+      "code": "print(\"Birinchi\\nIkkinchi\")",
+      "correct_answer": "Birinchi\nIkkinchi",
+      "explanation": "`\\n` — yangi qatorga oʻtish belgisi."
+    },
+    {
+      "id": 195,
+      "topic": "Maxsus belgilar (escape)",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(len(\"a\\tb\"))\n```",
+      "code": "print(len(\"a\\tb\"))",
+      "correct_answer": "3",
+      "explanation": "`\\t` bitta belgi hisoblanadi: a, tab, b — 3 ta."
+    },
+    {
+      "id": 196,
+      "topic": "Maxsus belgilar (escape)",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"U dedi: \\\"Salom!\\\"\")\n```",
+      "code": "print(\"U dedi: \\\"Salom!\\\"\")",
+      "correct_answer": "U dedi: \"Salom!\"",
+      "explanation": "`\\\"` satr ichida qoʻshtirnoqning oʻzini chiqaradi."
+    },
+    {
+      "id": 197,
+      "topic": "Maxsus belgilar (escape)",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(r\"C:\\new\\test\")\n```",
+      "code": "print(r\"C:\\new\\test\")",
+      "correct_answer": "C:\\new\\test",
+      "explanation": "`r` (raw) satrda teskari chiziq oddiy belgi boʻlib qoladi."
+    },
+    {
+      "id": 198,
+      "topic": "Maxsus belgilar (escape)",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(\"C:\\\\Users\\\\Ali\")\n```",
+      "code": "print(\"C:\\\\Users\\\\Ali\")",
+      "correct_answer": "C:\\Users\\Ali",
+      "explanation": "`\\\\` bitta teskari chiziqni chiqaradi."
+    },
+    {
+      "id": 199,
+      "topic": "Maxsus belgilar (escape)",
+      "type": "single_choice",
+      "difficulty": "easy",
+      "question": "Satr ichida yangi qatorga oʻtish uchun qaysi belgi ishlatiladi?",
+      "options": [
+        "A) \\n",
+        "B) \\t",
+        "C) /n",
+        "D) \\l"
+      ],
+      "correct_answer": "A",
+      "explanation": "`\\n` — yangi qator, `\\t` — tabulyatsiya."
+    },
+    {
+      "id": 200,
+      "topic": "Maxsus belgilar (escape)",
+      "type": "single_choice",
+      "difficulty": "hard",
+      "question": "Quyidagi dastur ekranga nima chiqaradi?\n\n```python\nprint(len(\"\\n\"), len(r\"\\n\"))\n```",
+      "code": "print(len(\"\\n\"), len(r\"\\n\"))",
+      "options": [
+        "A) 2 1",
+        "B) 1 1",
+        "C) 2 2",
+        "D) 1 2"
+      ],
+      "correct_answer": "D",
+      "explanation": "Oddiy satrda `\\n` bitta belgi. Raw satrda esa `\\` va `n` — ikkita alohida belgi."
+    }
+  ],
+  "practical_problems": [
+    {
+      "id": 1,
+      "title": "Doʻkon cheki",
+      "description": "Kichik doʻkon kassasi uchun chek chiqaruvchi dastur yozing. Har bir xaridga 5% chegirma beriladi: chegirma = jami * 5 // 100.\n\nKirish:\n1-qator — mahsulot nomi.\n2-qator — bitta mahsulot narxi va soni (ikki butun son, boʻsh joy bilan).\n\nChiqish (3 qator, sonlar minglik ajratuvchi vergul bilan):\n`NOM: SONI x NARX = JAMI soʻm`\n`Chegirma: CHEGIRMA soʻm`\n`Toʻlov: TOʻLOV soʻm`",
+      "input_example": "Daftar\n12000 10",
+      "output_example": "Daftar: 10 x 12,000 = 120,000 soʻm\nChegirma: 6,000 soʻm\nToʻlov: 114,000 soʻm",
+      "topics_used": [
+        "Oʻzgaruvchilar va nomlash",
+        "Bir nechta qiymat berish",
+        "Turlarni oʻzgartirish",
+        "Sonlar: int, float, complex",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 2,
+      "title": "Taksi narxi",
+      "description": "Taksi xizmati toʻlovini hisoblang.\nNarx: oʻtirish 6000 soʻm + har bir km uchun 2500 soʻm + har bir kutish daqiqasi uchun 500 soʻm.\n\nKirish: bitta qatorda masofa (km) va kutish daqiqalari (ikki butun son).\n\nChiqish:\n1-qator — `Masofa uchun: X soʻm`\n2-qator — `Kutish uchun: Y soʻm`\n3-qator — `Jami: Z soʻm`\nBarcha summalarda minglik ajratuvchi — boʻsh joy (masalan `38 500`).",
+      "input_example": "12 5",
+      "output_example": "Masofa uchun: 30 000 soʻm\nKutish uchun: 2 500 soʻm\nJami: 38 500 soʻm",
+      "topics_used": [
+        "Bir nechta qiymat berish",
+        "Sonlar: int, float, complex",
+        "Satr metodlari",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 3,
+      "title": "Oʻquvchi bahosi",
+      "description": "Oʻqituvchi uchun oʻquvchining choraklik natijasini chiqaruvchi dastur yozing.\n\nKirish: bitta qatorda oʻquvchi ismi (kichik harflarda boʻlishi mumkin) va 3 ta baho (butun sonlar).\n\nChiqish (3 qator):\n`ISM: oʻrtacha X` — ism bosh harf bilan, oʻrtacha 2 xona aniqlikda;\n`Eng past baho: Y`;\n`Aʼlochi: True` yoki `Aʼlochi: False` — oʻrtacha 4.5 yoki undan yuqori boʻlsa True.",
+      "input_example": "ali 5 4 5",
+      "output_example": "Ali: oʻrtacha 4.67\nEng past baho: 4\nAʼlochi: True",
+      "topics_used": [
+        "Bir nechta qiymat berish",
+        "Turlarni oʻzgartirish",
+        "Mantiqiy qiymatlar va None",
+        "Satr metodlari",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 4,
+      "title": "Telefon raqamini formatlash",
+      "description": "Mijozlar bazasida telefon raqamlari turlicha yozilgan: `+998 90 123 45 67`, `998-90-123-45-67`.\nRaqamdan boʻsh joy, `-` va `+` belgilarini olib tashlang, soʻng uni yagona koʻrinishga keltiring.\nTozalangan raqam doim 12 ta raqamdan iborat va `998` bilan boshlanadi.\n\nKirish: bitta qatorda telefon raqami.\n\nChiqish:\n1-qator — `+998 (KK) XXX-XX-XX` koʻrinishidagi raqam;\n2-qator — `Operator kodi: KK`.",
+      "input_example": "+998 90 123-45-67",
+      "output_example": "+998 (90) 123-45-67\nOperator kodi: 90",
+      "topics_used": [
+        "Satrlar asoslari",
+        "Kesish (slicing)",
+        "Satr metodlari",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 5,
+      "title": "Yangi xodim uchun login",
+      "description": "Kompaniyaga yangi xodim keldi. Ism-familiyasidan login, email va vaqtinchalik parol yarating.\nIsm-familiya ortiqcha boʻsh joylar va aralash registr bilan kiritilishi mumkin.\nLogin: `ism.familiya` (kichik harflarda). Email: `login@mirae.uz`.\nParol: familiyaning dastlabki 3 harfi (birinchisi katta, qolgani kichik) + tugʻilgan yilning oxirgi 2 raqami + `!`.\n\nKirish:\n1-qator — ism va familiya.\n2-qator — tugʻilgan yil (4 xonali).\n\nChiqish (3 qator): `Login: ...`, `Email: ...`, `Parol: ...`",
+      "input_example": "  aLi    VALIYEV  \n2009",
+      "output_example": "Login: ali.valiyev\nEmail: ali.valiyev@mirae.uz\nParol: Val09!",
+      "topics_used": [
+        "Bir nechta qiymat berish",
+        "Satrlar asoslari",
+        "Kesish (slicing)",
+        "Satr metodlari",
+        "Satrlarni birlashtirish"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 6,
+      "title": "Ob-havo ilovasi",
+      "description": "Ob-havo ilovasi uchun haroratni Farengeytga aylantiring: F = C * 9 / 5 + 32.\n\nKirish: bitta qatorda shahar nomi va harorat (Selsiy, kasr son boʻlishi mumkin).\n\nChiqish (2 qator):\n`SHAHAR: C°C = F°F` — ikkala son 1 xona aniqlikda;\n`Muzlash xavfi: True` yoki `False` — harorat 0 yoki undan past boʻlsa True.",
+      "input_example": "Termiz -2.5",
+      "output_example": "Termiz: -2.5°C = 27.5°F\nMuzlash xavfi: True",
+      "topics_used": [
+        "Bir nechta qiymat berish",
+        "Turlarni oʻzgartirish",
+        "Sonlar: int, float, complex",
+        "Mantiqiy qiymatlar va None",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 7,
+      "title": "Elektr energiyasi hisobi",
+      "description": "Uy elektr hisoblagichi koʻrsatkichlari boʻyicha toʻlovni hisoblang. 1 kVt·soat narxi — 800 soʻm.\nOyiga 300 kVt·soatdan koʻp sarflansa, bu limitdan oshish hisoblanadi.\n\nKirish: bitta qatorda oldingi va joriy koʻrsatkich (butun sonlar, joriy ≥ oldingi).\n\nChiqish (3 qator):\n`Sarf: N kVt·soat`\n`Toʻlov: X soʻm` (minglik ajratuvchi boʻsh joy bilan)\n`Limitdan oshdi: True` yoki `False`",
+      "input_example": "12450 12800",
+      "output_example": "Sarf: 350 kVt·soat\nToʻlov: 280 000 soʻm\nLimitdan oshdi: True",
+      "topics_used": [
+        "Bir nechta qiymat berish",
+        "Sonlar: int, float, complex",
+        "Mantiqiy qiymatlar va None",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 8,
+      "title": "Maktab ekskursiyasi",
+      "description": "Maktab oʻquvchilarni ekskursiyaga olib bormoqchi. Kerakli avtobuslar sonini, jami ijara narxini, har bir oʻquvchi toʻlovini va boʻsh qolgan oʻrinlarni hisoblang.\nAvtobuslar soni yuqoriga yaxlitlanadi: (oʻquvchi + sigʻim − 1) // sigʻim. Har bir oʻquvchi toʻlovi ham yuqoriga yaxlitlanadi (butun soʻmgacha).\n\nKirish: bitta qatorda oʻquvchilar soni, bitta avtobus sigʻimi va bitta avtobus ijarasi narxi (butun sonlar).\n\nChiqish (4 qator, pul summalari minglik ajratuvchi vergul bilan):\n`Avtobuslar: N`\n`Jami ijara: X soʻm`\n`Har bir oʻquvchi: Y soʻm`\n`Boʻsh oʻrinlar: Z`",
+      "input_example": "95 30 450000",
+      "output_example": "Avtobuslar: 4\nJami ijara: 1,800,000 soʻm\nHar bir oʻquvchi: 18,948 soʻm\nBoʻsh oʻrinlar: 25",
+      "topics_used": [
+        "Bir nechta qiymat berish",
+        "Sonlar: int, float, complex",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 9,
+      "title": "Parol tekshiruvi",
+      "description": "Roʻyxatdan oʻtish sahifasi parolni tekshiradi va har bir shart natijasini koʻrsatadi.\n\nKirish: bitta qatorda parol (boʻsh joysiz).\n\nChiqish (4 qator, har birida True yoki False):\n`Uzunligi 8 dan kam emas: ...`\n`Faqat raqamlardan iborat: ...`\n`Faqat harflardan iborat: ...`\n`Katta harf bor: ...` — parol kichik harfga oʻtkazilganda oʻzgarsa, demak katta harf bor.",
+      "input_example": "Mirae2026",
+      "output_example": "Uzunligi 8 dan kam emas: True\nFaqat raqamlardan iborat: False\nFaqat harflardan iborat: False\nKatta harf bor: True",
+      "topics_used": [
+        "Mantiqiy qiymatlar va None",
+        "Satrlar asoslari",
+        "Satr metodlari"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 10,
+      "title": "Sana formati",
+      "description": "Elektron kundalik sanalarni `YYYY-MM-DD` koʻrinishida saqlaydi. Uni `DD.MM.YYYY` koʻrinishiga keltiring va sana yilning nechanchi choragiga tegishli ekanini aniqlang: chorak = (oy − 1) // 3 + 1.\n\nKirish: bitta qatorda sana, masalan `2026-10-31`.\n\nChiqish (2 qator):\n`DD.MM.YYYY`\n`Chorak: N`",
+      "input_example": "2026-10-31",
+      "output_example": "31.10.2026\nChorak: 4",
+      "topics_used": [
+        "Turlarni oʻzgartirish",
+        "Sonlar: int, float, complex",
+        "Kesish (slicing)",
+        "Satrlarni birlashtirish"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 11,
+      "title": "Valyuta ayirboshlash",
+      "description": "Bank kassasida dollarni soʻmga almashtiruvchi dastur yozing.\nSumma = round(dollar * kurs). Komissiya — summaning 1% i: summa * 1 // 100.\n\nKirish:\n1-qator — 1 dollar kursi (butun son, soʻmda).\n2-qator — dollar miqdori (kasr son boʻlishi mumkin).\n\nChiqish (3 qator, summalarda minglik ajratuvchi — boʻsh joy):\n`Summa: X soʻm`\n`Komissiya: K soʻm`\n`Qoʻlga: Q soʻm`",
+      "input_example": "12800\n250.5",
+      "output_example": "Summa: 3 206 400 soʻm\nKomissiya: 32 064 soʻm\nQoʻlga: 3 174 336 soʻm",
+      "topics_used": [
+        "Turlarni oʻzgartirish",
+        "Sonlar: int, float, complex",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 12,
+      "title": "Ombor qoldigʻi",
+      "description": "Ombordagi mahsulot qoldigʻini hisoblang. Qoldiq 50 donadan kam boʻlsa, yangi buyurtma berish kerak.\n\nKirish: bitta qatorda boshlangʻich qoldiq, kirim va chiqim (uchta butun son).\n\nChiqish (2 qator):\n`Qoldiq: N dona`\n`Buyurtma kerak: True` yoki `False`",
+      "input_example": "120 30 115",
+      "output_example": "Qoldiq: 35 dona\nBuyurtma kerak: True",
+      "topics_used": [
+        "Bir nechta qiymat berish",
+        "Sonlar: int, float, complex",
+        "Mantiqiy qiymatlar va None",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 13,
+      "title": "SMS xabarnoma narxi",
+      "description": "Internet-doʻkon mijozlarga SMS yuboradi. Bitta SMS 70 ta belgigacha sigʻadi, narxi 150 soʻm.\nXabar atrofidagi boʻsh joylar hisobga olinmaydi (strip). SMS soni yuqoriga yaxlitlanadi: (belgilar + 69) // 70.\n\nKirish: bitta qatorda xabar matni (boʻsh emas).\n\nChiqish (3 qator):\n`Belgilar: N`\n`SMS soni: K`\n`Narx: X soʻm`",
+      "input_example": "  Hurmatli mijoz! Buyurtmangiz qabul qilindi va ertaga soat 10:00 dan 14:00 gacha yetkazib beriladi.  ",
+      "output_example": "Belgilar: 98\nSMS soni: 2\nNarx: 300 soʻm",
+      "topics_used": [
+        "Sonlar: int, float, complex",
+        "Satrlar asoslari",
+        "Satr metodlari",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 14,
+      "title": "Bank kartasini yashirish",
+      "description": "Toʻlov ilovasi ekranda karta raqamini toʻliq koʻrsatmasligi kerak.\nKiritilgan raqamdan boʻsh joylarni olib tashlang (natija doim 16 ta raqam) va uni `XXXX **** **** XXXX` koʻrinishida chiqaring.\n\nKirish: bitta qatorda karta raqami.\n\nChiqish (2 qator):\n1-qator — yashirilgan raqam;\n2-qator — `Humo: True` yoki `Humo: False` (raqam `9860` bilan boshlansa True).",
+      "input_example": "9860 1234 5678 9012",
+      "output_example": "9860 **** **** 9012\nHumo: True",
+      "topics_used": [
+        "Mantiqiy qiymatlar va None",
+        "Satrlar asoslari",
+        "Kesish (slicing)",
+        "Satr metodlari",
+        "Satrlarni birlashtirish"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 15,
+      "title": "Kinoteatr chiptalari",
+      "description": "Oila kinoga bormoqchi. Katta yoshli chiptasi 40 000 soʻm, bolalar chiptasi 20 000 soʻm.\nOnlayn xarid qilinganda jami summadan 10% chegirma beriladi: jami * 10 // 100.\n\nKirish: bitta qatorda kattalar soni va bolalar soni (ikki butun son).\n\nChiqish (3 qator, summalarda minglik ajratuvchi — boʻsh joy):\n`Jami: X soʻm`\n`Chegirma: Y soʻm`\n`Toʻlov: Z soʻm`",
+      "input_example": "2 3",
+      "output_example": "Jami: 140 000 soʻm\nChegirma: 14 000 soʻm\nToʻlov: 126 000 soʻm",
+      "topics_used": [
+        "Bir nechta qiymat berish",
+        "Sonlar: int, float, complex",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": 16,
+      "title": "Guruh jurnali",
+      "description": "Oʻqituvchi uch oʻquvchining natijasini jadval koʻrinishida chiqarmoqchi.\n\nKirish: 3 qator, har birida oʻquvchi ismi (kichik harflarda boʻlishi mumkin) va balli (butun son).\n\nChiqish:\nSarlavha: `Ism` 10 belgi kenglikda chapga, `Ball` 5 belgi kenglikda oʻngga tekislangan.\nHar bir oʻquvchi: ism (bosh harf bilan) 10 belgi chapga, ball 5 belgi oʻngga.\nKeyin 15 ta `-` belgisidan iborat chiziq.\n`Oʻrtacha` 10 belgi chapga va oʻrtacha ball 5 belgi oʻngga, 1 xona aniqlikda.\nOxirgi qator: `Eng yuqori ball: N`.",
+      "input_example": "ali 87\nmalika 95\nbobur 78",
+      "output_example": "Ism        Ball\nAli          87\nMalika       95\nBobur        78\n---------------\nOʻrtacha   86.7\nEng yuqori ball: 95",
+      "topics_used": [
+        "Bir nechta qiymat berish",
+        "Turlarni oʻzgartirish",
+        "Sonlar: int, float, complex",
+        "Satr metodlari",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 17,
+      "title": "Yugurish musobaqasi",
+      "description": "Yugurish musobaqasida sportchining start va marra vaqtlari `SS:DD:SS` (soat:daqiqa:soniya) koʻrinishida qayd etildi. Masofani bosib oʻtish vaqtini hisoblang (bir kun ichida).\n\nKirish: bitta qatorda start va marra vaqtlari, masalan `09:15:30 09:58:12`.\n\nChiqish:\n1-qator — `Natija: D daqiqa S soniya`;\n2-qator — `Jami soniya: N`.",
+      "input_example": "09:15:30 09:58:12",
+      "output_example": "Natija: 42 daqiqa 42 soniya\nJami soniya: 2562",
+      "topics_used": [
+        "Bir nechta qiymat berish",
+        "Turlarni oʻzgartirish",
+        "Sonlar: int, float, complex",
+        "Kesish (slicing)",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 18,
+      "title": "Matn statistikasi",
+      "description": "Blog muharriri uchun gap boʻyicha qisqa statistika chiqaring.\nGap kamida ikki soʻzdan iborat, soʻzlar bitta boʻsh joy bilan ajratilgan.\n\nKirish: bitta qatorda gap.\n\nChiqish (4 qator):\n`Soʻzlar: N`\n`Boʻsh joysiz belgilar: K`\n`Birinchi soʻz: SOʻZ` — birinchi boʻsh joygacha boʻlgan qism (find() dan foydalaning)\n`Sarlavha: ...` — har bir soʻz bosh harf bilan",
+      "input_example": "python dasturlash tilini organamiz",
+      "output_example": "Soʻzlar: 4\nBoʻsh joysiz belgilar: 31\nBirinchi soʻz: python\nSarlavha: Python Dasturlash Tilini Organamiz",
+      "topics_used": [
+        "Satrlar asoslari",
+        "Kesish (slicing)",
+        "Satr metodlari",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 19,
+      "title": "Ish vaqti va ish haqi",
+      "description": "Xodimning kelish va ketish vaqti boʻyicha bugungi ish haqini hisoblang.\nIshlangan daqiqalar = ketish − kelish (bir kun ichida). Dastlabki 480 daqiqa — oddiy vaqt, undan ortigʻi — qoʻshimcha vaqt.\nOddiy daqiqalar = min(daqiqa, 480), qoʻshimcha daqiqalar = max(0, daqiqa − 480).\nIsh haqi = (oddiy * stavka * 2 + qoʻshimcha * stavka * 3) // 120 (qoʻshimcha vaqt 1.5 baravar toʻlanadi).\n\nKirish:\n1-qator — kelish va ketish vaqti `SS:DD SS:DD` koʻrinishida.\n2-qator — soatlik stavka (soʻm, butun son).\n\nChiqish (3 qator):\n`Ishlangan vaqt: S soat D daqiqa`\n`Qoʻshimcha vaqt: Q daqiqa`\n`Ish haqi: X soʻm` (minglik ajratuvchi boʻsh joy bilan)",
+      "input_example": "09:15 18:40\n30000",
+      "output_example": "Ishlangan vaqt: 9 soat 25 daqiqa\nQoʻshimcha vaqt: 85 daqiqa\nIsh haqi: 303 750 soʻm",
+      "topics_used": [
+        "Bir nechta qiymat berish",
+        "Turlarni oʻzgartirish",
+        "Sonlar: int, float, complex",
+        "Kesish (slicing)",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": 20,
+      "title": "Restoran hisobini boʻlish",
+      "description": "Doʻstlar restoranda hisobni teng boʻlishmoqchi.\nChoychaqa = hisob * foiz // 100. Jami = hisob + choychaqa.\nHar bir kishi toʻlovi: avval jamini kishilar soniga boʻlib yuqoriga yaxlitlang (butun soʻm), keyin natijani 1000 soʻmga karrali qilib yuqoriga yaxlitlang.\nOrtiqcha = har bir kishi toʻlovi * kishilar soni − jami.\n\nKirish: bitta qatorda hisob summasi, kishilar soni va choychaqa foizi (butun sonlar).\n\nChiqish (4 qator, summalar minglik ajratuvchi vergul bilan):\n`Choychaqa: X soʻm`\n`Jami: Y soʻm`\n`Har bir kishi: Z soʻm`\n`Ortiqcha: W soʻm`",
+      "input_example": "485000 4 10",
+      "output_example": "Choychaqa: 48,500 soʻm\nJami: 533,500 soʻm\nHar bir kishi: 134,000 soʻm\nOrtiqcha: 2,500 soʻm",
+      "topics_used": [
+        "Bir nechta qiymat berish",
+        "Sonlar: int, float, complex",
+        "f-satrlar (formatlangan satrlar)"
+      ],
+      "difficulty": "hard"
+    }
+  ]
+}

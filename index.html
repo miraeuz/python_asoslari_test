@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0d17" media="(prefers-color-scheme: dark)" />
+    <meta name="description" content="Python Academy – Application 2: Python Asoslari imtihon platformasi" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Python Academy · Imtihon</title>
+    <script>
+      // Avoid a flash of the wrong theme before React mounts.
+      try {
+        var s = JSON.parse(localStorage.getItem("pa-exam:prefs") || "{}");
+        var mode = s.mode || "system";
+        var dark = mode === "dark" || (mode === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.toggle("dark", dark);
+        document.documentElement.dataset.palette = s.palette || "indigo";
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

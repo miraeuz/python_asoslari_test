@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   Design tokens. Every color is an HSL triplet so Tailwind can apply
+   alpha (`bg-primary/10`). Palettes only override brand hues; the
+   neutral system stays shared so every palette feels calm.
+   ------------------------------------------------------------------ */
+@layer base {
+  :root {
+    --radius: 0.9rem;
+    --shadow: 230 30% 20%;
+
+    /* warm neutrals */
+    --canvas: 40 22% 96%;
+    --background: 40 20% 97.5%;
+    --foreground: 232 32% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 232 32% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 232 32% 13%;
+    --secondary: 40 14% 93%;
+    --secondary-foreground: 232 25% 22%;
+    --muted: 40 14% 93.5%;
+    --muted-foreground: 230 10% 43%;
+    --border: 35 14% 87%;
+    --input: 35 14% 84%;
+
+    /* brand: deep indigo + soft teal */
+    --primary: 243 75% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 243 90% 96%;
+    --accent: 172 66% 38%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 170 60% 94%;
+    --ring: 243 75% 58%;
+
+    /* states */
+    --success: 152 62% 36%;
+    --success-foreground: 0 0% 100%;
+    --success-soft: 150 55% 94%;
+    --warning: 36 92% 46%;
+    --warning-foreground: 0 0% 100%;
+    --warning-soft: 42 95% 93%;
+    --destructive: 356 72% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-soft: 356 85% 96%;
+
+    /* code surfaces (VS Code Light+) */
+    --code-bg: 0 0% 100%;
+    --code-border: 35 12% 86%;
+    --code-gutter: 220 9% 62%;
+  }
+
+  .dark {
+    --shadow: 235 50% 2%;
+    --canvas: 234 32% 5%;
+    --background: 234 30% 6.5%;
+    --foreground: 228 30% 94%;
+    --card: 234 26% 10%;
+    --card-foreground: 228 30% 94%;
+    --popover: 234 26% 11%;
+    --popover-foreground: 228 30% 94%;
+    --secondary: 234 20% 15%;
+    --secondary-foreground: 228 25% 88%;
+    --muted: 234 20% 14%;
+    --muted-foreground: 230 14% 64%;
+    --border: 234 18% 19%;
+    --input: 234 18% 23%;
+
+    --primary: 245 90% 72%;
+    --primary-foreground: 240 40% 8%;
+    --primary-soft: 245 45% 18%;
+    --accent: 170 60% 52%;
+    --accent-foreground: 172 60% 8%;
+    --accent-soft: 172 40% 14%;
+    --ring: 245 90% 72%;
+
+    --success: 150 55% 50%;
+    --success-foreground: 150 60% 7%;
+    --success-soft: 152 40% 13%;
+    --warning: 40 92% 60%;
+    --warning-foreground: 36 80% 9%;
+    --warning-soft: 38 50% 14%;
+    --destructive: 356 85% 66%;
+    --destructive-foreground: 356 60% 8%;
+    --destructive-soft: 356 40% 15%;
+
+    /* VS Code Dark+ */
+    --code-bg: 0 0% 12%;
+    --code-border: 234 14% 22%;
+    --code-gutter: 0 0% 52%;
+  }
+
+  /* Academy palette: Mirae blue + teal */
+  [data-palette="mirae"] {
+    --primary: 226 100% 58%;
+    --primary-soft: 224 100% 96%;
+    --ring: 226 100% 58%;
+    --accent: 175 84% 32%;
+    --accent-soft: 172 60% 93%;
+  }
+  .dark[data-palette="mirae"] {
+    --primary: 224 100% 70%;
+    --primary-soft: 226 50% 18%;
+    --ring: 224 100% 70%;
+    --accent: 172 66% 50%;
+    --accent-soft: 175 45% 13%;
+  }
+
+  /* Academy palette: forest + amber */
+  [data-palette="forest"] {
+    --primary: 160 70% 30%;
+    --primary-soft: 152 50% 94%;
+    --ring: 160 70% 30%;
+    --accent: 32 90% 48%;
+    --accent-soft: 38 90% 93%;
+  }
+  .dark[data-palette="forest"] {
+    --primary: 156 55% 52%;
+    --primary-foreground: 160 60% 7%;
+    --primary-soft: 160 40% 13%;
+    --ring: 156 55% 52%;
+    --accent: 36 92% 62%;
+    --accent-soft: 34 45% 14%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-canvas text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01", "ss03";
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: hsl(var(--primary) / 0.22);
+  }
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .glass {
+    background: hsl(var(--card) / 0.72);
+    backdrop-filter: saturate(1.6) blur(18px);
+    -webkit-backdrop-filter: saturate(1.6) blur(18px);
+  }
+  .surface {
+    @apply rounded-xl border bg-card text-card-foreground shadow-soft;
+  }
+  .hairline {
+    box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.6);
+  }
+  .dark .hairline {
+    box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.04);
+  }
+  .inline-code {
+    @apply rounded-md border border-border/70 bg-muted px-1.5 py-0.5 font-mono text-[0.86em] text-foreground;
+  }
+  .safe-bottom {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.35) transparent;
+  }
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  }
+}
+
+
+/* highlighted tokens: light/dark colors come from VS Code themes */
+.tok {
+  color: var(--tl);
+}
+.dark .tok {
+  color: var(--td);
+}
+
+/* Code must show the exact characters students type: no ligatures (>= stays >=). */
+.font-mono,
+code,
+pre,
+kbd {
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+}
