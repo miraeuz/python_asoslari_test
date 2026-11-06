@@ -62,7 +62,7 @@ export function ChoiceOptions({
               "group relative flex w-full items-start gap-4 rounded-2xl border bg-card p-4 text-left text-[15.5px] leading-relaxed transition-[border-color,box-shadow,transform] duration-200 sm:p-[1.125rem]",
               on
                 ? "border-primary/70 shadow-[0_0_0_1px_hsl(var(--primary)/0.5),0_10px_28px_-14px_hsl(var(--primary)/0.55)]"
-                : "border-border hover:-translate-y-px hover:border-foreground/20 hover:shadow-soft",
+                : "border-border hover:border-foreground/20 hover:shadow-soft",
             )}
           >
             {on && !multi && (

@@ -6,6 +6,7 @@ import { examConfig } from "@/config/exam.config";
 import { isItemAnswered, partProgress } from "@/lib/results";
 import { cn } from "@/lib/utils";
 import { itemKey, useExam, type Attempt } from "@/store/examStore";
+import { useOpenAttempt } from "@/store/examStore";
 
 type Filter = "all" | "unanswered" | "marked";
 
@@ -97,7 +98,7 @@ export function Legend({ className }: { className?: string }) {
 }
 
 export function QuestionNavigator({ onNavigate, onSubmitPart }: { onNavigate?: () => void; onSubmitPart: () => void }) {
-  const attempt = useExam((s) => s.attempt)!;
+  const attempt = useOpenAttempt();
   const goTo = useExam((s) => s.goTo);
   const [filter, setFilter] = useState<Filter>("all");
   const pi = attempt.activePart;

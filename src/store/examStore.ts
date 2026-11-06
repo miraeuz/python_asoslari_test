@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { create } from "zustand";
 import { examConfig } from "@/config/exam.config";
 import { bank, questionById } from "@/data/bank";
@@ -341,3 +342,15 @@ export const useExam = create<ExamState>()((set, get) => {
 
 /** Convenience selectors */
 export const useAttempt = () => useExam((s) => s.attempt);
+
+/**
+ * The open attempt for screens that require one. While a screen animates
+ * out after the attempt was closed (reset), it keeps the last attempt it
+ * rendered instead of crashing on `null`.
+ */
+export function useOpenAttempt(): Attempt {
+  const a = useExam((s) => s.attempt);
+  const last = useRef(a);
+  if (a) last.current = a;
+  return last.current!;
+}

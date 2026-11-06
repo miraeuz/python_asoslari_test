@@ -17,10 +17,11 @@ import { isAnswered } from "@/lib/grading";
 import { hasSolution, partProgress, STARTER_CODE } from "@/lib/results";
 import { cn } from "@/lib/utils";
 import { itemKey, remainingOf, useExam } from "@/store/examStore";
+import { useOpenAttempt } from "@/store/examStore";
 import { usePrefs } from "@/store/prefsStore";
 
 export function ExamScreen() {
-  const attempt = useExam((s) => s.attempt)!;
+  const attempt = useOpenAttempt();
   const direction = useExam((s) => s.direction);
   const { next, prev, setAnswer, toggleMark, setCode, setRun, submitPart, expireActivePart } = useExam.getState();
   const { sidebarCollapsed, toggleSidebar } = usePrefs();

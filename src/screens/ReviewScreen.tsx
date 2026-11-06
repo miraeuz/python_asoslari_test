@@ -13,6 +13,7 @@ import { useNow } from "@/hooks/useNow";
 import { formatClock } from "@/lib/format";
 import { isItemAnswered, partProgress } from "@/lib/results";
 import { itemKey, remainingOf, useExam, type PartRuntime } from "@/store/examStore";
+import { useOpenAttempt } from "@/store/examStore";
 import { Backdrop } from "./WelcomeScreen";
 
 const statusMeta = (p: PartRuntime, remaining: number) => {
@@ -22,7 +23,7 @@ const statusMeta = (p: PartRuntime, remaining: number) => {
 };
 
 export function ReviewScreen() {
-  const attempt = useExam((s) => s.attempt)!;
+  const attempt = useOpenAttempt();
   const { openPart, finishExam } = useExam.getState();
   const now = useNow(1000);
   const [confirmOpen, setConfirmOpen] = useState(false);

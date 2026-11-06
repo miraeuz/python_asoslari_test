@@ -12,11 +12,12 @@ import { problemById } from "@/data/bank";
 import { runPython } from "@/lib/python";
 import { computeResults, hasSolution } from "@/lib/results";
 import { itemKey, useExam } from "@/store/examStore";
+import { useOpenAttempt } from "@/store/examStore";
 import { Backdrop } from "./WelcomeScreen";
 
 /** Runs every written solution against its example once, after final submit. */
 function useFinalChecks() {
-  const attempt = useExam((s) => s.attempt)!;
+  const attempt = useOpenAttempt();
   const setRun = useExam((s) => s.setRun);
   const started = useRef(false);
   useEffect(() => {
@@ -47,7 +48,7 @@ function useFinalChecks() {
 }
 
 export function ResultsScreen() {
-  const attempt = useExam((s) => s.attempt)!;
+  const attempt = useOpenAttempt();
   const reset = useExam((s) => s.reset);
   const [confirmReset, setConfirmReset] = useState(false);
   useFinalChecks();

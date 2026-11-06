@@ -8,12 +8,13 @@ import { examConfig } from "@/config/exam.config";
 import { formatDuration } from "@/lib/format";
 import { partProgress } from "@/lib/results";
 import { useExam } from "@/store/examStore";
+import { useOpenAttempt } from "@/store/examStore";
 import { Backdrop } from "./WelcomeScreen";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function TransitionScreen() {
-  const attempt = useExam((s) => s.attempt)!;
+  const attempt = useOpenAttempt();
   const beginPart = useExam((s) => s.beginPart);
   const reduce = useReducedMotion();
   const from = attempt.transitionFrom ?? 0;

@@ -5,6 +5,7 @@ import { examConfig } from "@/config/exam.config";
 import { formatClock } from "@/lib/format";
 import { isItemAnswered, partProgress } from "@/lib/results";
 import { itemKey, useExam } from "@/store/examStore";
+import { useOpenAttempt } from "@/store/examStore";
 import { NavCell } from "./QuestionNavigator";
 
 export function SubmitPartDialog({
@@ -18,7 +19,7 @@ export function SubmitPartDialog({
   remainingMs: number;
   onConfirm: () => void;
 }) {
-  const attempt = useExam((s) => s.attempt)!;
+  const attempt = useOpenAttempt();
   const goTo = useExam((s) => s.goTo);
   const pi = attempt.activePart;
   const part = attempt.parts[pi];
