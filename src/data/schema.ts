@@ -27,6 +27,8 @@ export interface RawProblem {
   output_example: string;
   topics_used: string[];
   difficulty: Difficulty;
+  /** Optional group used by problem pools (`pool.units`). */
+  unit?: number;
 }
 
 export interface RawBank {
@@ -65,6 +67,7 @@ export interface Problem {
   outputExample: string;
   topics: string[];
   difficulty: Difficulty;
+  unit?: number;
 }
 
 export interface Bank {
@@ -121,6 +124,7 @@ export function normalizeBank(raw: RawBank): Bank {
     outputExample: p.output_example,
     topics: p.topics_used,
     difficulty: p.difficulty,
+    unit: p.unit,
   }));
 
   return { course: String(raw.meta?.course ?? "Python Academy"), topics, questions, problems };

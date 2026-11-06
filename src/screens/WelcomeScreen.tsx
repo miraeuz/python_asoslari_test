@@ -32,9 +32,9 @@ export function Backdrop() {
   const reduce = useReducedMotion();
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div className={`absolute -left-[12%] -top-[22%] h-[62vmax] w-[62vmax] rounded-full bg-primary/[0.16] blur-[110px] dark:bg-primary/[0.2] ${reduce ? "" : "animate-float-slow"}`} />
+      <div className={`absolute -left-[12%] -top-[22%] h-[62vmax] w-[62vmax] rounded-full bg-primary/[0.16] blur-[6.875rem] dark:bg-primary/[0.2] ${reduce ? "" : "animate-float-slow"}`} />
       <div
-        className={`absolute -bottom-[28%] -right-[10%] h-[56vmax] w-[56vmax] rounded-full bg-accent/[0.14] blur-[120px] dark:bg-accent/[0.14] ${reduce ? "" : "animate-float-slow"}`}
+        className={`absolute -bottom-[28%] -right-[10%] h-[56vmax] w-[56vmax] rounded-full bg-accent/[0.14] blur-[7.5rem] dark:bg-accent/[0.14] ${reduce ? "" : "animate-float-slow"}`}
         style={{ animationDelay: "-9s" }}
       />
       <div
@@ -131,7 +131,7 @@ export function WelcomeScreen() {
                   {p.count}
                   <span className="ml-1 text-sm font-medium text-muted-foreground">{p.kind === "problems" ? "masala" : "savol"}</span>
                 </div>
-                <div className="mt-1 text-[13px] leading-snug text-muted-foreground">{p.subtitle}</div>
+                <div className="mt-1 text-[0.8125rem] leading-snug text-muted-foreground">{p.subtitle}</div>
               </div>
             ))}
           </motion.div>
@@ -231,7 +231,7 @@ export function WelcomeScreen() {
                 </summary>
                 <ul className="space-y-2.5 px-4 pb-4">
                   {rules.map((r) => (
-                    <li key={r.text} className="flex gap-3 text-[13.5px] leading-relaxed text-muted-foreground">
+                    <li key={r.text} className="flex gap-3 text-[0.8438rem] leading-relaxed text-muted-foreground">
                       <r.icon className="mt-0.5 size-4 shrink-0 text-primary" />
                       {r.text}
                     </li>
@@ -240,7 +240,7 @@ export function WelcomeScreen() {
               </details>
 
               <label className="flex cursor-pointer items-start gap-3 rounded-xl px-1 py-1 text-sm">
-                <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="mt-0.5 size-[18px] shrink-0 accent-[hsl(var(--primary))]" />
+                <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="mt-0.5 size-[1.125rem] shrink-0 accent-[hsl(var(--primary))]" />
                 <span className="text-muted-foreground">
                   Qoidalar bilan tanishdim. Imtihonni <span className="font-semibold text-foreground">mustaqil</span> topshiraman.
                 </span>

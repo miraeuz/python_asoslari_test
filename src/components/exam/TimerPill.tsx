@@ -14,7 +14,7 @@ export function TimerPill({ remainingMs, totalMs, compact }: { remainingMs: numb
       aria-live="off"
       aria-label={`Qolgan vaqt ${formatClock(remainingMs)}`}
       className={cn(
-        "relative flex h-10 items-center gap-2 overflow-hidden rounded-full border px-3.5 font-mono text-[15px] font-semibold tabular-nums transition-colors",
+        "relative flex h-10 items-center gap-2 overflow-hidden rounded-full border px-3.5 font-mono text-[0.9375rem] font-semibold tabular-nums transition-colors",
         danger
           ? "border-destructive/40 bg-destructive-soft text-destructive"
           : warn

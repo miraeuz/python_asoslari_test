@@ -130,6 +130,8 @@
     @apply border-border;
   }
   html {
+    /* Fluid root size: every rem in the UI scales from phones (15px) to large monitors (17px). */
+    font-size: clamp(0.9375rem, 0.875rem + 0.2vw, 1.0625rem);
     -webkit-text-size-adjust: 100%;
     color-scheme: light;
   }

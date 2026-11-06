@@ -47,7 +47,7 @@ export function CodeBlock({
     >
       <figcaption className="flex h-9 items-stretch justify-between border-b border-code-border bg-[hsl(var(--code-bg))] pr-1.5 dark:bg-[hsl(0_0%_9.5%)]">
         <div className="flex items-stretch">
-          <div className="flex items-center gap-1.5 border-r border-code-border bg-code-bg px-3.5 text-[12.5px] text-foreground/80 shadow-[inset_0_2px_0_hsl(var(--primary))]">
+          <div className="flex items-center gap-1.5 border-r border-code-border bg-code-bg px-3.5 text-[0.7812rem] text-foreground/80 shadow-[inset_0_2px_0_hsl(var(--primary))]">
             <PythonIcon className="size-3.5" />
             <span className="font-mono">{filename}</span>
           </div>
@@ -56,7 +56,7 @@ export function CodeBlock({
           <button
             type="button"
             onClick={copy}
-            className="my-1 inline-flex items-center gap-1.5 rounded-md px-2 text-[12px] font-medium text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+            className="my-1 inline-flex items-center gap-1.5 rounded-md px-2 text-[0.75rem] font-medium text-muted-foreground transition hover:bg-secondary hover:text-foreground"
             aria-label="Kodni nusxalash"
           >
             <AnimatePresence mode="wait" initial={false}>
@@ -74,7 +74,7 @@ export function CodeBlock({
         )}
       </figcaption>
       <div className={cn("overflow-x-auto scrollbar-thin", compact ? "py-2.5" : "py-3.5")}>
-        <pre className="min-w-max font-mono text-[13.5px] leading-[1.7] sm:text-[14px]">
+        <pre className="min-w-max font-mono text-[0.8438rem] leading-[1.7] sm:text-[0.875rem]">
           <code className="grid">
             {lines.map((tokens, i) => (
               <span key={i} className="grid grid-cols-[3.25rem_1fr] hover:bg-foreground/[0.035]">

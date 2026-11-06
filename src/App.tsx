@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useAutosave } from "@/hooks/useAutosave";
 import { useLeaveGuard } from "@/hooks/useLeaveGuard";
@@ -26,21 +26,20 @@ export default function App() {
       <a href="#main" className="sr-only z-[100] rounded-lg bg-primary px-4 py-2 text-primary-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
         Asosiy qismga oʻtish
       </a>
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.div
-          key={pageKey}
-          initial={{ opacity: 0, y: reduce ? 0 : 12, scale: reduce ? 1 : 0.995 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: reduce ? 0 : -8, scale: reduce ? 1 : 0.995 }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {phase === "welcome" && <WelcomeScreen />}
-          {phase === "exam" && <ExamScreen />}
-          {phase === "transition" && <TransitionScreen />}
-          {phase === "review" && <ReviewScreen />}
-          {phase === "results" && <ResultsScreen />}
-        </motion.div>
-      </AnimatePresence>
+      {/* Enter-only page animation: a new key mounts a fresh page immediately.
+          No exit phase means the old page can never stay on screen or receive clicks. */}
+      <motion.div
+        key={pageKey}
+        initial={{ opacity: 0, y: reduce ? 0 : 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {phase === "welcome" && <WelcomeScreen />}
+        {phase === "exam" && <ExamScreen />}
+        {phase === "transition" && <TransitionScreen />}
+        {phase === "review" && <ReviewScreen />}
+        {phase === "results" && <ResultsScreen />}
+      </motion.div>
     </TooltipProvider>
   );
 }

@@ -65,6 +65,8 @@ interface ExamState {
   lastSavedAt: number | null;
   /** +1 = forward, -1 = backward. Drives slide direction. */
   direction: 1 | -1;
+  /** Set when an unfinished attempt was reopened automatically after a reload. */
+  restoredAt: number | null;
 
   start(student: Student | null): void;
   resume(): void;
@@ -126,7 +128,15 @@ function writeSnapshot(attempt: Attempt | null) {
   }
 }
 
+/** On reload, reopen an unfinished attempt straight away (no detour via the welcome page). */
+function initialState() {
+  const saved = loadSaved();
+  if (saved && saved.phase !== "results") return { attempt: saved as Attempt | null, saved: null as Attempt | null, restoredAt: Date.now() as number | null };
+  return { attempt: null as Attempt | null, saved, restoredAt: null as number | null };
+}
+
 export const useExam = create<ExamState>()((set, get) => {
+  const init = initialState();
   /** Apply an attempt mutation and bump the revision (autosave watches it). */
   const mutate = (fn: (a: Attempt) => Attempt | void) => {
     const a = get().attempt;
@@ -143,7 +153,10 @@ export const useExam = create<ExamState>()((set, get) => {
   };
 
   /** Pause the active part, store a status, and route to the next screen. */
-  const closeActivePart = (status: "submitted" | "expired") =>
+  const closeActivePart = (status: "submitted" | "expired") => {
+    // Only an active part of a running exam can be closed (blocks double submits).
+    const cur = get().attempt;
+    if (!cur || cur.phase !== "exam" || cur.parts[cur.activePart]?.status !== "active") return;
     mutate((a) => {
       const now = Date.now();
       const idx = a.activePart;
@@ -159,14 +172,17 @@ export const useExam = create<ExamState>()((set, get) => {
         a.transitionFrom = undefined;
       }
     });
+    get().persistNow();
+  };
 
   return {
-    attempt: null,
-    saved: loadSaved(),
+    attempt: init.attempt,
+    saved: init.saved,
     rev: 0,
     savedRev: 0,
-    lastSavedAt: null,
+    lastSavedAt: init.attempt ? Date.now() : null,
     direction: 1,
+    restoredAt: init.restoredAt,
 
     start(student) {
       const seed = newSeed();
@@ -228,7 +244,7 @@ export const useExam = create<ExamState>()((set, get) => {
 
     goTo(index) {
       const a = get().attempt;
-      if (!a) return;
+      if (!a || a.phase !== "exam") return;
       const part = a.parts[a.activePart];
       const clamped = Math.max(0, Math.min(part.itemIds.length - 1, index));
       if (clamped === part.cursor) return;
@@ -248,6 +264,7 @@ export const useExam = create<ExamState>()((set, get) => {
     },
 
     setAnswer(key, answer) {
+      if (get().attempt?.phase !== "exam") return;
       mutate((a) => {
         const answers = { ...a.answers };
         if (answer) answers[key] = answer;
@@ -256,6 +273,7 @@ export const useExam = create<ExamState>()((set, get) => {
       });
     },
     toggleMark(key) {
+      if (get().attempt?.phase !== "exam") return;
       mutate((a) => {
         const marked = { ...a.marked };
         if (marked[key]) delete marked[key];
@@ -264,6 +282,7 @@ export const useExam = create<ExamState>()((set, get) => {
       });
     },
     setCode(key, code) {
+      if (get().attempt?.phase !== "exam") return;
       mutate((a) => {
         a.code = { ...a.code, [key]: code };
       });
@@ -279,6 +298,11 @@ export const useExam = create<ExamState>()((set, get) => {
     expireActivePart: () => closeActivePart("expired"),
 
     beginPart(index) {
+      // Only from the transition screen, and only the next waiting part.
+      // (Prevents a double click from skipping a part.)
+      const cur = get().attempt;
+      if (!cur || cur.phase !== "transition") return;
+      if (index !== cur.parts.findIndex((p) => p.status === "pending")) return;
       mutate((a) => {
         const now = Date.now();
         a.parts = a.parts.map((p, i) => (i === index ? { ...p, status: "active", activeSince: now, startedAt: p.startedAt ?? now } : p));
@@ -288,11 +312,12 @@ export const useExam = create<ExamState>()((set, get) => {
         markVisited(a);
       });
       set({ direction: 1 });
+      get().persistNow();
     },
 
     openPart(index, cursor) {
       const a = get().attempt;
-      if (!a) return;
+      if (!a || a.phase !== "review") return;
       const target = a.parts[index];
       const reopenable =
         target.status === "paused" ||
@@ -312,6 +337,7 @@ export const useExam = create<ExamState>()((set, get) => {
     },
 
     goReview() {
+      if (get().attempt?.phase !== "exam") return;
       mutate((a) => {
         const now = Date.now();
         a.parts = a.parts.map((p) => (p.status === "active" ? { ...pause(p, now), status: "paused" } : p));
@@ -320,6 +346,7 @@ export const useExam = create<ExamState>()((set, get) => {
     },
 
     finishExam() {
+      if (get().attempt?.phase !== "review") return;
       mutate((a) => {
         const now = Date.now();
         a.parts = a.parts.map((p) =>

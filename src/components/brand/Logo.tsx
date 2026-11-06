@@ -5,7 +5,7 @@ export function LogoMark({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        "relative grid size-9 shrink-0 place-items-center overflow-hidden rounded-[11px] bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-glow",
+        "relative grid size-9 shrink-0 place-items-center overflow-hidden rounded-[0.6875rem] bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-glow",
         className,
       )}
       aria-hidden
@@ -25,8 +25,8 @@ export function Logo({ compact, className }: { compact?: boolean; className?: st
       <LogoMark />
       {!compact && (
         <div className="leading-none">
-          <div className="text-[15px] font-bold tracking-tight">{examConfig.brand.academy}</div>
-          <div className="mt-1 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+          <div className="text-[0.9375rem] font-bold tracking-tight">{examConfig.brand.academy}</div>
+          <div className="mt-1 text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
             {examConfig.brand.application} · {examConfig.brand.title}
           </div>
         </div>

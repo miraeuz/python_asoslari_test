@@ -109,7 +109,7 @@ export function CodeEditor({
       )}
     >
       <div className="max-h-[70dvh] overflow-auto scrollbar-thin" onClick={() => taRef.current?.focus()}>
-        <div className="relative flex min-w-max font-mono text-[13.5px] leading-[1.7] sm:text-[14px]">
+        <div className="relative flex min-w-max font-mono text-[0.8438rem] leading-[1.7] sm:text-[0.875rem]">
           <div
             aria-hidden
             className="sticky left-0 z-10 select-none border-r border-code-border/70 bg-code-bg py-3.5 pl-3 pr-3 text-right text-code-gutter/80 tabular-nums"

@@ -23,7 +23,7 @@ function ExampleBlock({ title, value }: { title: string; value: string }) {
   return (
     <div className="overflow-hidden rounded-xl border border-code-border bg-code-bg">
       <div className="flex items-center justify-between border-b border-code-border px-3.5 py-2">
-        <span className="text-[11.5px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{title}</span>
+        <span className="text-[0.7188rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{title}</span>
         <button
           type="button"
           onClick={async () => {
@@ -35,13 +35,13 @@ function ExampleBlock({ title, value }: { title: string; value: string }) {
               /* ignore */
             }
           }}
-          className="inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 text-[11.5px] text-muted-foreground hover:bg-secondary hover:text-foreground"
+          className="inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 text-[0.7188rem] text-muted-foreground hover:bg-secondary hover:text-foreground"
           aria-label={`${title}ni nusxalash`}
         >
           {copied ? <Check className="size-3.5 text-success" /> : <Copy className="size-3.5" />}
         </button>
       </div>
-      <pre className="overflow-x-auto whitespace-pre px-3.5 py-3 font-mono text-[13.5px] leading-[1.7] text-foreground scrollbar-thin">{value}</pre>
+      <pre className="overflow-x-auto whitespace-pre px-3.5 py-3 font-mono text-[0.8438rem] leading-[1.7] text-foreground scrollbar-thin">{value}</pre>
     </div>
   );
 }
@@ -92,11 +92,11 @@ export const ProblemView = forwardRef<
   });
 
   return (
-    <article className="mx-auto grid w-full max-w-[1400px] gap-6 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]" aria-labelledby={`p${p.id}-title`}>
+    <article className="mx-auto grid w-full max-w-[100rem] gap-6 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] xl:gap-10" aria-labelledby={`p${p.id}-title`}>
       {/* ── Statement ── */}
       <section className="min-w-0 xl:sticky xl:top-24 xl:max-h-[calc(100dvh-12rem)] xl:overflow-y-auto xl:pr-2 scrollbar-thin">
         <div className="mb-4 flex flex-wrap items-center gap-2">
-          <span className="font-mono text-[13px] font-semibold tabular-nums text-primary">
+          <span className="font-mono text-[0.8125rem] font-semibold tabular-nums text-primary">
             {String(number).padStart(2, "0")}
             <span className="text-muted-foreground/60"> / {total}</span>
           </span>
@@ -114,7 +114,7 @@ export const ProblemView = forwardRef<
             </Badge>
           ))}
         </div>
-        <RichText text={emphasiseSections(p.description)} className="mt-5 text-[15.5px] leading-[1.75] text-foreground/90" />
+        <RichText text={emphasiseSections(p.description)} className="mt-5 text-[0.9688rem] leading-[1.75] text-foreground/90" />
         <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
           <ExampleBlock title="Namuna kirish" value={p.inputExample} />
           <ExampleBlock title="Namuna chiqish" value={p.outputExample} />
@@ -140,11 +140,11 @@ export const ProblemView = forwardRef<
         <div className="grid gap-3 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div className="overflow-hidden rounded-xl border bg-card">
             <div className="flex items-center justify-between border-b px-3.5 py-2">
-              <label htmlFor={`stdin-${p.id}`} className="text-[11.5px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <label htmlFor={`stdin-${p.id}`} className="text-[0.7188rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 Kirish (stdin)
               </label>
               {!usingExample && (
-                <button onClick={() => setStdin(p.inputExample)} className="text-[11.5px] font-medium text-primary hover:underline">
+                <button onClick={() => setStdin(p.inputExample)} className="text-[0.7188rem] font-medium text-primary hover:underline">
                   Namunani tiklash
                 </button>
               )}
@@ -156,13 +156,13 @@ export const ProblemView = forwardRef<
               spellCheck={false}
               wrap="off"
               rows={4}
-              className="block w-full resize-y bg-transparent px-3.5 py-3 font-mono text-[13.5px] leading-[1.7] outline-none"
+              className="block w-full resize-y bg-transparent px-3.5 py-3 font-mono text-[0.8438rem] leading-[1.7] outline-none"
             />
           </div>
 
           <div className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-code-border bg-code-bg">
             <div className="flex items-center justify-between gap-2 border-b border-code-border px-3.5 py-2">
-              <span className="flex items-center gap-2 text-[11.5px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <span className="flex items-center gap-2 text-[0.7188rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 <TerminalSquare className="size-3.5 text-accent" /> Natija
               </span>
               <AnimatePresence mode="wait">
@@ -197,7 +197,7 @@ export const ProblemView = forwardRef<
                 )}
               </AnimatePresence>
             </div>
-            <div className="min-h-[7.5rem] flex-1 overflow-auto px-3.5 py-3 font-mono text-[13.5px] leading-[1.7] scrollbar-thin" aria-live="polite">
+            <div className="min-h-[7.5rem] flex-1 overflow-auto px-3.5 py-3 font-mono text-[0.8438rem] leading-[1.7] scrollbar-thin" aria-live="polite">
               {running ? (
                 <span className="flex items-center gap-2 text-muted-foreground">
                   <Loader2 className="size-4 animate-spin" />

@@ -50,13 +50,13 @@ export function ReviewScreen() {
             Topshirishdan oldin hammasini tekshiring. Vaqti qolgan qismga qaytib, javobsiz yoki belgilangan savollarni koʻrib chiqishingiz mumkin.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
-            <Badge tone="success" className="px-3 py-1 text-[13px]">
+            <Badge tone="success" className="px-3 py-1 text-[0.8125rem]">
               <CheckCircle2 /> {answered} ta javob
             </Badge>
-            <Badge tone={allUnanswered ? "destructive" : "neutral"} className="px-3 py-1 text-[13px]">
+            <Badge tone={allUnanswered ? "destructive" : "neutral"} className="px-3 py-1 text-[0.8125rem]">
               <AlertTriangle /> {allUnanswered} ta javobsiz
             </Badge>
-            <Badge tone="warning" className="px-3 py-1 text-[13px]">
+            <Badge tone="warning" className="px-3 py-1 text-[0.8125rem]">
               <Bookmark /> {allMarked} ta belgilangan
             </Badge>
           </div>
@@ -83,7 +83,7 @@ export function ReviewScreen() {
                   <div>
                     <div className="font-mono text-xs font-semibold text-primary">0{pi + 1}</div>
                     <h2 className="mt-1 text-lg font-semibold">{cfg.title}</h2>
-                    <p className="text-[13px] text-muted-foreground">{cfg.subtitle}</p>
+                    <p className="text-[0.8125rem] text-muted-foreground">{cfg.subtitle}</p>
                   </div>
                   <Badge tone={meta.tone}>
                     <meta.icon /> {meta.label}
@@ -108,7 +108,7 @@ export function ReviewScreen() {
                   { title: "Belgilangan", list: marked, empty: "Belgilangan savol yoʻq" },
                 ].map((g) => (
                   <div key={g.title} className="mt-5">
-                    <div className="mb-2 text-[12.5px] font-semibold text-muted-foreground">
+                    <div className="mb-2 text-[0.7812rem] font-semibold text-muted-foreground">
                       {g.title} · {g.list.length}
                     </div>
                     {g.list.length ? (
@@ -128,7 +128,7 @@ export function ReviewScreen() {
                         {g.list.length > 30 && <span className="self-center text-xs text-muted-foreground">+{g.list.length - 30}</span>}
                       </div>
                     ) : (
-                      <p className="text-[13px] text-muted-foreground/80">{g.empty}</p>
+                      <p className="text-[0.8125rem] text-muted-foreground/80">{g.empty}</p>
                     )}
                   </div>
                 ))}
@@ -139,7 +139,7 @@ export function ReviewScreen() {
                       Qismga qaytish <ArrowRight />
                     </Button>
                   ) : (
-                    <p className="flex items-center gap-2 text-[13px] text-muted-foreground">
+                    <p className="flex items-center gap-2 text-[0.8125rem] text-muted-foreground">
                       <Lock className="size-4" /> Bu qismga qaytib boʻlmaydi
                     </p>
                   )}
@@ -194,7 +194,7 @@ export function ReviewScreen() {
             </DialogDescription>
           </DialogHeader>
           <label className="flex cursor-pointer items-start gap-3 rounded-xl border bg-card p-3.5 text-sm">
-            <input type="checkbox" checked={understood} onChange={(e) => setUnderstood(e.target.checked)} className="mt-0.5 size-[18px] accent-[hsl(var(--primary))]" />
+            <input type="checkbox" checked={understood} onChange={(e) => setUnderstood(e.target.checked)} className="mt-0.5 size-[1.125rem] accent-[hsl(var(--primary))]" />
             Tushundim: topshirgandan keyin javoblarni oʻzgartirib boʻlmaydi.
           </label>
           <div className="flex flex-col gap-2">

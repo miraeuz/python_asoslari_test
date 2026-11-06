@@ -6,7 +6,7 @@ export function DifficultyDots({ level, className }: { level: D; className?: str
   const n = level === "easy" ? 1 : level === "medium" ? 2 : 3;
   return (
     <span className={cn("inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground", className)} title={difficultyLabel[level]}>
-      <span className="flex gap-[3px]" aria-hidden>
+      <span className="flex gap-[0.1875rem]" aria-hidden>
         {[1, 2, 3].map((i) => (
           <span
             key={i}

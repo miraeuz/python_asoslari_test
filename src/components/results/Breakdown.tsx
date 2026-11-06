@@ -47,7 +47,7 @@ export function PartBreakdown({ results }: { results: ExamResults }) {
               </div>
             ))}
           </dl>
-          {p.kind === "problems" && <p className="mt-3 text-[11.5px] leading-relaxed text-muted-foreground">Namuna kirish bilan avtomatik tekshirildi. Yakuniy baho — oʻqituvchi koʻrib chiqqandan keyin.</p>}
+          {p.kind === "problems" && <p className="mt-3 text-[0.7188rem] leading-relaxed text-muted-foreground">Namuna kirish bilan avtomatik tekshirildi. Yakuniy baho — oʻqituvchi koʻrib chiqqandan keyin.</p>}
         </motion.div>
       ))}
     </div>
@@ -62,7 +62,7 @@ export function TopicBars({ results }: { results: ExamResults }) {
       <div className="flex flex-wrap items-end justify-between gap-2">
         <div>
           <h2 className="text-lg font-semibold">Mavzular boʻyicha</h2>
-          <p className="text-sm text-muted-foreground">1- va 2-qism savollari asosida</p>
+          <p className="text-sm text-muted-foreground">Test savollari asosida</p>
         </div>
         {weakest.length > 0 && (
           <p className="text-sm text-muted-foreground">

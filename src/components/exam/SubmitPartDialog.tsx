@@ -60,14 +60,14 @@ export function SubmitPartDialog({
                 <s.icon className="size-4" />
               </span>
               <div className="mt-2 text-xl font-bold tabular-nums">{s.value}</div>
-              <div className="text-[11.5px] text-muted-foreground">{s.label}</div>
+              <div className="text-[0.7188rem] text-muted-foreground">{s.label}</div>
             </div>
           ))}
         </div>
 
         {unanswered.length > 0 && (
           <div>
-            <p className="mb-2 text-[13px] font-semibold">Javobsiz savollar — bosib oʻting</p>
+            <p className="mb-2 text-[0.8125rem] font-semibold">Javobsiz savollar — bosib oʻting</p>
             <div className="flex flex-wrap gap-1.5">
               {unanswered.map(({ id, idx }) => (
                 <NavCell key={id} number={idx + 1} kind="unvisited" answered={false} marked={!!attempt.marked[itemKey(part.id, id)]} size="sm" onClick={() => jump(idx)} />
@@ -77,7 +77,7 @@ export function SubmitPartDialog({
         )}
         {marked.length > 0 && (
           <div>
-            <p className="mb-2 text-[13px] font-semibold">Belgilangan savollar</p>
+            <p className="mb-2 text-[0.8125rem] font-semibold">Belgilangan savollar</p>
             <div className="flex flex-wrap gap-1.5">
               {marked.map(({ id, idx }) => (
                 <NavCell key={id} number={idx + 1} kind={isItemAnswered(attempt, pi, id) ? "answered" : "visited"} answered={isItemAnswered(attempt, pi, id)} marked size="sm" onClick={() => jump(idx)} />

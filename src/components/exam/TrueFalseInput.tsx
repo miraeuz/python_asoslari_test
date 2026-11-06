@@ -46,7 +46,7 @@ export function TrueFalseInput({ answer, onChange, idPrefix }: { answer: Answer 
               <it.icon className="size-6" strokeWidth={2.6} />
             </span>
             <span className="relative">{it.label}</span>
-            <span className="relative font-mono text-[11px] font-medium text-muted-foreground/70">{it.hint}</span>
+            <span className="relative font-mono text-[0.6875rem] font-medium text-muted-foreground/70">{it.hint}</span>
           </motion.button>
         );
       })}

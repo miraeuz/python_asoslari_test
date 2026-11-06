@@ -31,8 +31,8 @@ function OutputPair({ yours, correct, yoursLabel = "Sizning javobingiz", correct
         { label: correctLabel, value: correct, tone: "border-success/40" },
       ].map((b) => (
         <div key={b.label} className={cn("overflow-hidden rounded-xl border bg-code-bg", b.tone)}>
-          <div className="border-b border-code-border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{b.label}</div>
-          <pre className="overflow-x-auto whitespace-pre px-3 py-2.5 font-mono text-[13px] leading-[1.7] scrollbar-thin">{b.value || <span className="text-muted-foreground">—</span>}</pre>
+          <div className="border-b border-code-border px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{b.label}</div>
+          <pre className="overflow-x-auto whitespace-pre px-3 py-2.5 font-mono text-[0.8125rem] leading-[1.7] scrollbar-thin">{b.value || <span className="text-muted-foreground">—</span>}</pre>
         </div>
       ))}
     </div>
@@ -47,7 +47,7 @@ function QuestionDetail({ q, answer, order, verdict }: { q: Question; answer: An
 
   return (
     <div className="space-y-4">
-      <RichText text={q.prompt} className="text-[15px] leading-relaxed" />
+      <RichText text={q.prompt} className="text-[0.9375rem] leading-relaxed" />
       {q.code && <CodeBlock code={q.code} compact />}
 
       {(q.type === "single_choice" || q.type === "multiple_choice") && (
@@ -59,14 +59,14 @@ function QuestionDetail({ q, answer, order, verdict }: { q: Question; answer: An
               <li
                 key={k}
                 className={cn(
-                  "flex items-start gap-3 rounded-xl border px-3.5 py-2.5 text-[14.5px]",
+                  "flex items-start gap-3 rounded-xl border px-3.5 py-2.5 text-[0.9062rem]",
                   reveal && isRight && "border-success/50 bg-success-soft/60",
                   isChosen && !isRight && "border-destructive/50 bg-destructive-soft/60",
                 )}
               >
                 <span
                   className={cn(
-                    "grid size-6 shrink-0 place-items-center rounded-full border text-[11px] font-bold",
+                    "grid size-6 shrink-0 place-items-center rounded-full border text-[0.6875rem] font-bold",
                     reveal && isRight ? "border-success bg-success text-success-foreground" : isChosen ? "border-destructive bg-destructive text-destructive-foreground" : "text-muted-foreground",
                   )}
                 >
@@ -75,7 +75,7 @@ function QuestionDetail({ q, answer, order, verdict }: { q: Question; answer: An
                 <span className="min-w-0 flex-1 pt-0.5">
                   <OptionText q={q} text={byKey.get(k)!.text} />
                 </span>
-                {isChosen && <span className="shrink-0 pt-0.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">Siz</span>}
+                {isChosen && <span className="shrink-0 pt-0.5 text-[0.6875rem] font-semibold uppercase tracking-wide text-muted-foreground">Siz</span>}
               </li>
             );
           })}
@@ -94,7 +94,7 @@ function QuestionDetail({ q, answer, order, verdict }: { q: Question; answer: An
       )}
 
       {reveal && q.explanation && (
-        <div className="flex gap-3 rounded-xl border border-primary/20 bg-primary-soft/50 p-3.5 text-[14px] leading-relaxed">
+        <div className="flex gap-3 rounded-xl border border-primary/20 bg-primary-soft/50 p-3.5 text-[0.875rem] leading-relaxed">
           <Lightbulb className="mt-0.5 size-4 shrink-0 text-primary" />
           <RichInline text={q.explanation} />
         </div>
@@ -108,7 +108,7 @@ function ProblemDetail({ item, code }: { item: ItemResult; code: string | undefi
   const run = item.run;
   return (
     <div className="space-y-4">
-      <RichText text={p.description} className="text-[14px] leading-relaxed text-muted-foreground" />
+      <RichText text={p.description} className="text-[0.875rem] leading-relaxed text-muted-foreground" />
       {item.verdict === "unanswered" ? (
         <p className="rounded-xl border border-dashed p-4 text-sm text-muted-foreground">Yechim yozilmagan.</p>
       ) : (
@@ -117,7 +117,7 @@ function ProblemDetail({ item, code }: { item: ItemResult; code: string | undefi
       {item.verdict !== "unanswered" && (
         <>
           <OutputPair yours={run?.stdout ?? ""} correct={p.outputExample} yoursLabel="Dasturingiz natijasi" correctLabel="Kutilgan natija" ok={item.verdict === "correct"} />
-          {run?.stderr && <pre className="overflow-x-auto whitespace-pre-wrap rounded-xl border border-destructive/30 bg-destructive-soft/50 p-3 font-mono text-[12.5px] text-destructive">{run.stderr}</pre>}
+          {run?.stderr && <pre className="overflow-x-auto whitespace-pre-wrap rounded-xl border border-destructive/30 bg-destructive-soft/50 p-3 font-mono text-[0.7812rem] text-destructive">{run.stderr}</pre>}
         </>
       )}
       <p className="text-xs text-muted-foreground">
@@ -139,9 +139,9 @@ function ReviewItem({ item, attempt }: { item: ItemResult; attempt: Attempt }) {
         <span className={cn("grid size-8 shrink-0 place-items-center rounded-full", meta.cls)} aria-label={meta.label}>
           <meta.icon className={cn("size-4", item.verdict === "checking" && "animate-spin")} strokeWidth={2.6} />
         </span>
-        <span className="w-8 shrink-0 font-mono text-[13px] font-semibold tabular-nums text-muted-foreground">{String(item.index + 1).padStart(2, "0")}</span>
+        <span className="w-8 shrink-0 font-mono text-[0.8125rem] font-semibold tabular-nums text-muted-foreground">{String(item.index + 1).padStart(2, "0")}</span>
         <span className="min-w-0 flex-1">
-          <span className="line-clamp-1 text-[14.5px] font-medium">
+          <span className="line-clamp-1 text-[0.9062rem] font-medium">
             <RichInline text={title} />
           </span>
           <span className="mt-0.5 flex flex-wrap gap-x-3 text-xs text-muted-foreground">
@@ -206,7 +206,7 @@ export function ReviewList({ results, attempt }: { results: ExamResults; attempt
         </div>
         <div role="tablist" className="flex gap-1 rounded-xl bg-secondary/70 p-1">
           {results.parts.map((p, i) => (
-            <button key={p.index} role="tab" aria-selected={tab === i} onClick={() => setTab(i)} className={cn("relative rounded-lg px-3.5 py-1.5 text-[13px] font-semibold transition", tab === i ? "text-foreground" : "text-muted-foreground hover:text-foreground")}>
+            <button key={p.index} role="tab" aria-selected={tab === i} onClick={() => setTab(i)} className={cn("relative rounded-lg px-3.5 py-1.5 text-[0.8125rem] font-semibold transition", tab === i ? "text-foreground" : "text-muted-foreground hover:text-foreground")}>
               {tab === i && <motion.span layoutId="review-tab" className="absolute inset-0 rounded-lg bg-card shadow-soft" transition={{ type: "spring", stiffness: 420, damping: 34 }} />}
               <span className="relative">{p.title}</span>
             </button>
@@ -221,7 +221,7 @@ export function ReviewList({ results, attempt }: { results: ExamResults; attempt
             onClick={() => setFilter(f.id)}
             aria-pressed={filter === f.id}
             className={cn(
-              "rounded-full border px-3.5 py-1.5 text-[13px] font-medium transition",
+              "rounded-full border px-3.5 py-1.5 text-[0.8125rem] font-medium transition",
               filter === f.id ? "border-foreground bg-foreground text-background" : "bg-card text-muted-foreground hover:text-foreground",
             )}
           >

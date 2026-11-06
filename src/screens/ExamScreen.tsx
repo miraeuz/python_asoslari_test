@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { RotateCcw } from "lucide-react";
 import { ActionBar } from "@/components/exam/ActionBar";
 import { ExamHeader } from "@/components/exam/ExamHeader";
 import { QuestionNavigator } from "@/components/exam/QuestionNavigator";
@@ -15,10 +16,37 @@ import { useIsDesktop } from "@/hooks/useMediaQuery";
 import { useNow } from "@/hooks/useNow";
 import { isAnswered } from "@/lib/grading";
 import { hasSolution, partProgress, STARTER_CODE } from "@/lib/results";
-import { cn } from "@/lib/utils";
 import { itemKey, remainingOf, useExam } from "@/store/examStore";
 import { useOpenAttempt } from "@/store/examStore";
 import { usePrefs } from "@/store/prefsStore";
+
+/** Short notice after a reload reopened the exam automatically. */
+function RestoredNotice() {
+  const restoredAt = useExam((s) => s.restoredAt);
+  const [show, setShow] = useState(() => !!restoredAt && Date.now() - restoredAt < 4000);
+  useEffect(() => {
+    if (!show) return;
+    const t = window.setTimeout(() => setShow(false), 3800);
+    return () => window.clearTimeout(t);
+  }, [show]);
+  return (
+    <AnimatePresence>
+      {show && (
+        <motion.div
+          role="status"
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          className="pointer-events-none fixed inset-x-0 top-[4.5rem] z-50 flex justify-center px-4"
+        >
+          <span className="flex items-center gap-2 rounded-full border border-success/30 bg-card px-4 py-2 text-[0.8125rem] font-semibold text-success shadow-lift">
+            <RotateCcw className="size-4" /> Imtihon tiklandi — javoblaringiz saqlangan, vaqt davom etmoqda
+          </span>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
 
 export function ExamScreen() {
   const attempt = useOpenAttempt();
@@ -107,70 +135,60 @@ export function ExamScreen() {
   };
 
   const showSidebar = isDesktop && !sidebarCollapsed;
-  const slide = reduce ? 0 : 28;
+  const slide = reduce ? 0 : 18;
 
   return (
     <div className="flex min-h-dvh flex-col">
       <ExamHeader partIndex={pi} answered={prog.answered} total={prog.total} remainingMs={remaining} onShortcuts={() => setKeysOpen(true)} />
+      <RestoredNotice />
 
-      <div className="mx-auto flex w-full max-w-[1600px] flex-1">
-        <AnimatePresence initial={false}>
-          {showSidebar && (
-            <motion.aside
-              key="sidebar"
-              initial={{ width: 0, opacity: 0 }}
-              animate={{ width: 316, opacity: 1 }}
-              exit={{ width: 0, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 34 }}
-              className="sticky top-16 h-[calc(100dvh-4rem)] shrink-0 overflow-hidden border-r border-border/70"
-              aria-label="Savollar navigatori"
-            >
-              <div className="h-full w-[316px] overflow-y-auto p-5 scrollbar-thin">
-                <QuestionNavigator onSubmitPart={() => setSubmitOpen(true)} />
-              </div>
-            </motion.aside>
-          )}
-        </AnimatePresence>
+      <div className="flex w-full flex-1">
+        {showSidebar && (
+          <aside
+            className="sticky top-16 h-[calc(100dvh-4rem)] w-[15.5rem] shrink-0 overflow-y-auto border-r border-border/70 bg-card/40 px-4 py-4 scrollbar-thin 2xl:w-[17rem]"
+            aria-label="Savollar navigatori"
+          >
+            <QuestionNavigator onSubmitPart={() => setSubmitOpen(true)} />
+          </aside>
+        )}
 
         <main ref={mainRef} id="main" className="flex min-w-0 flex-1 flex-col">
-          <div className={cn("flex-1 px-4 pb-32 pt-7 sm:px-8 sm:pt-10 lg:pb-12", cfg.kind === "problems" && "xl:px-10")}>
+          <div className="flex-1 px-4 pb-28 pt-5 sm:px-6 sm:pt-7 lg:px-8 lg:pb-10 2xl:px-12">
             <div aria-live="polite" className="sr-only">
               {cfg.title}, {part.cursor + 1}-savol, jami {part.itemIds.length}
             </div>
-            <AnimatePresence mode="wait" initial={false} custom={direction}>
-              <motion.div
-                key={key}
-                custom={direction}
-                initial={{ opacity: 0, x: direction * slide, filter: "blur(3px)" }}
-                animate={{ opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 0.26, ease: [0.22, 1, 0.36, 1] } }}
-                exit={{ opacity: 0, x: -direction * (slide / 2), filter: "blur(3px)", transition: { duration: 0.14, ease: [0.4, 0, 1, 1] } }}
-              >
-                {question && (
-                  <QuestionView
-                    ref={headingRef}
-                    q={question}
-                    number={part.cursor + 1}
-                    total={part.itemIds.length}
-                    order={order}
-                    answer={attempt.answers[key]}
-                    marked={!!attempt.marked[key]}
-                    onAnswer={(a) => setAnswer(key, a)}
-                  />
-                )}
-                {problem && (
-                  <ProblemView
-                    ref={headingRef}
-                    p={problem}
-                    number={part.cursor + 1}
-                    total={part.itemIds.length}
-                    code={attempt.code[key]}
-                    run={attempt.runs[key]}
-                    onCode={(c) => setCode(key, c)}
-                    onRun={(r) => setRun(key, r)}
-                  />
-                )}
-              </motion.div>
-            </AnimatePresence>
+            {/* Enter-only animation: each question mounts fresh and is always visible. */}
+            <motion.div
+              key={key}
+              initial={{ opacity: 0, x: direction * slide }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {question && (
+                <QuestionView
+                  ref={headingRef}
+                  q={question}
+                  number={part.cursor + 1}
+                  total={part.itemIds.length}
+                  order={order}
+                  answer={attempt.answers[key]}
+                  marked={!!attempt.marked[key]}
+                  onAnswer={(a) => setAnswer(key, a)}
+                />
+              )}
+              {problem && (
+                <ProblemView
+                  ref={headingRef}
+                  p={problem}
+                  number={part.cursor + 1}
+                  total={part.itemIds.length}
+                  code={attempt.code[key]}
+                  run={attempt.runs[key]}
+                  onCode={(c) => setCode(key, c)}
+                  onRun={(r) => setRun(key, r)}
+                />
+              )}
+            </motion.div>
           </div>
 
           <ActionBar

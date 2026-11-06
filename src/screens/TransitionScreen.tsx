@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Clock3, Code2, ListChecks, TimerOff } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
@@ -17,6 +18,7 @@ export function TransitionScreen() {
   const attempt = useOpenAttempt();
   const beginPart = useExam((s) => s.beginPart);
   const reduce = useReducedMotion();
+  const [starting, setStarting] = useState(false);
   const from = attempt.transitionFrom ?? 0;
   const nextIndex = attempt.parts.findIndex((p) => p.status === "pending");
   const done = attempt.parts[from];
@@ -85,7 +87,16 @@ export function TransitionScreen() {
                 </li>
               </ul>
               <div className="mt-8">
-                <MagneticButton size="xl" onClick={() => beginPart(nextIndex)} autoFocus>
+                <MagneticButton
+                  size="xl"
+                  disabled={starting}
+                  onClick={() => {
+                    if (starting) return;
+                    setStarting(true);
+                    beginPart(nextIndex);
+                  }}
+                  autoFocus
+                >
                   {nextCfg.title}ni boshlash <ArrowRight />
                 </MagneticButton>
               </div>

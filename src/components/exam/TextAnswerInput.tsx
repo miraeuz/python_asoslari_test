@@ -8,7 +8,7 @@ export function FillBlankInput({ answer, onChange, id }: { answer: Answer | unde
   const value = answer?.kind === "text" ? answer.value : "";
   return (
     <div className="rounded-2xl border bg-card p-4 sm:p-5">
-      <label htmlFor={id} className="flex items-center gap-2 text-[13px] font-semibold text-muted-foreground">
+      <label htmlFor={id} className="flex items-center gap-2 text-[0.8125rem] font-semibold text-muted-foreground">
         <PenLine className="size-4" /> Boʻsh joy (<code className="inline-code">____</code>) oʻrniga yoziladigan qism
       </label>
       <input
@@ -41,13 +41,13 @@ export function OutputAnswerInput({ answer, onChange, id }: { answer: Answer | u
   return (
     <div className="overflow-hidden rounded-2xl border border-code-border bg-code-bg shadow-soft">
       <div className="flex items-center justify-between border-b border-code-border px-4 py-2.5">
-        <label htmlFor={id} className="flex items-center gap-2 text-[12.5px] font-semibold text-muted-foreground">
+        <label htmlFor={id} className="flex items-center gap-2 text-[0.7812rem] font-semibold text-muted-foreground">
           <TerminalSquare className="size-4 text-accent" /> TERMINAL — dastur natijasi
         </label>
-        <span className="font-mono text-[11px] text-muted-foreground tabular-nums">{lines} qator</span>
+        <span className="font-mono text-[0.6875rem] text-muted-foreground tabular-nums">{lines} qator</span>
       </div>
       <div className="flex">
-        <span aria-hidden className="select-none py-3.5 pl-4 font-mono text-[14px] leading-[1.7] text-accent">
+        <span aria-hidden className="select-none py-3.5 pl-4 font-mono text-[0.875rem] leading-[1.7] text-accent">
           ❯
         </span>
         <textarea
@@ -62,7 +62,7 @@ export function OutputAnswerInput({ answer, onChange, id }: { answer: Answer | u
           wrap="off"
           placeholder={"Ekranga chiqadigan natijani aynan yozing.\nHar bir print() — yangi qatordan."}
           className={cn(
-            "min-h-[132px] w-full resize-none overflow-x-auto whitespace-pre bg-transparent px-3 py-3.5 font-mono text-[14px] leading-[1.7] text-foreground outline-none placeholder:text-muted-foreground/50",
+            "min-h-[8.25rem] w-full resize-none overflow-x-auto whitespace-pre bg-transparent px-3 py-3.5 font-mono text-[0.875rem] leading-[1.7] text-foreground outline-none placeholder:text-muted-foreground/50",
           )}
         />
       </div>

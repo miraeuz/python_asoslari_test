@@ -33,7 +33,7 @@ export function ActionBar({
   const isLast = index === total - 1;
   return (
     <div className="glass fixed inset-x-0 bottom-0 z-30 border-t border-border/70 safe-bottom lg:sticky lg:bottom-0 lg:mt-auto">
-      <div className="mx-auto flex max-w-[1400px] items-center gap-2 px-3 pt-3 sm:gap-3 sm:px-6 lg:pb-3">
+      <div className="mx-auto flex max-w-[100rem] items-center gap-2 px-3 pt-3 sm:gap-3 sm:px-6 lg:pb-3">
         <Tip label={<span className="flex items-center gap-2">Oldingi <Kbd className="bg-transparent text-background/80">←</Kbd></span>} side="top">
           <Button variant="outline" onClick={onPrev} disabled={isFirst} aria-label="Oldingi savol" className="px-3 sm:px-4">
             <ArrowLeft /> <span className="hidden sm:inline">Oldingi</span>
